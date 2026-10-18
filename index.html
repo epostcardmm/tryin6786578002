@@ -462,23 +462,23 @@
                 </h3>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာလွှာ ခေါင်းစဉ် (Title)</label>
-                    <input type="text" id="cfg-letter-title" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <input type="text" id="cfg-letter-title" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၁ (Paragraph 1)</label>
-                    <textarea id="cfg-letter-p1" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p1" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၂ (Paragraph 2)</label>
-                    <textarea id="cfg-letter-p2" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p2" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၃ (Paragraph 3)</label>
-                    <textarea id="cfg-letter-p3" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p3" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">လက်မှတ် / အဆုံးသတ် စာသား (Signature)</label>
-                    <input type="text" id="cfg-letter-sig" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <input type="text" id="cfg-letter-sig" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 </div>
             </div>
 
@@ -495,21 +495,21 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Text)</label>
-                        <input type="text" id="cfg-yes-text" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="Yes">
+                        <input type="text" id="cfg-yes-text" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="Yes">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Font Size (px)</label>
-                        <input type="number" id="cfg-yes-fontsize" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="18" min="12" max="36">
+                        <input type="number" id="cfg-yes-fontsize" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="18" min="12" max="36">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Background Gradient/Color</label>
-                        <input type="text" id="cfg-yes-bg" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="linear-gradient(135deg, #ff416c, #ff4b2b)">
+                        <label class="block text-xs text-slate-400 mb-1">Background Color</label>
+                        <input type="color" id="cfg-yes-bg" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ff416c">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Text Color</label>
-                        <input type="color" id="cfg-yes-color" oninput="updateConfig()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
+                        <input type="color" id="cfg-yes-color" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
                     </div>
                 </div>
             </div>
@@ -522,21 +522,21 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Text)</label>
-                        <input type="text" id="cfg-no-text" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="No">
+                        <input type="text" id="cfg-no-text" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="No">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Font Size (px)</label>
-                        <input type="number" id="cfg-no-fontsize" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="18" min="12" max="36">
+                        <input type="number" id="cfg-no-fontsize" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="18" min="12" max="36">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Background Gradient/Color</label>
-                        <input type="text" id="cfg-no-bg" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="linear-gradient(135deg, #6a11cb, #2575fc)">
+                        <label class="block text-xs text-slate-400 mb-1">Background Color</label>
+                        <input type="color" id="cfg-no-bg" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#6a11cb">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Text Color</label>
-                        <input type="color" id="cfg-no-color" oninput="updateConfig()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
+                        <input type="color" id="cfg-no-color" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
                     </div>
                 </div>
             </div>
@@ -547,7 +547,7 @@
                     <i class="fa-solid fa-font"></i> မေးခွန်း စာသား Font Size (Global Question Size)
                 </h3>
                 <div class="flex items-center gap-3">
-                    <input type="range" id="cfg-question-fontsize" min="14" max="32" value="20" oninput="updateConfig()" class="w-full accent-pink-500">
+                    <input type="range" id="cfg-question-fontsize" min="14" max="32" value="20" oninput="updateConfigOnly()" class="w-full accent-pink-500">
                     <span id="cfg-question-fontsize-val" class="text-xs font-bold text-pink-400 w-8">20px</span>
                 </div>
             </div>
@@ -638,7 +638,7 @@
                 <p class="text-xs text-slate-400 leading-relaxed">
                     သူများ အဖြေပေးလိုက်သည့်အခါ သင့် Gmail သို့ အကြောင်းကြားချက် ရောက်ရှိစေရန် Formspree Endpoint လင့်ခ် ထည့်ပါ (မထည့်ပါကလည်း အလုပ်လုပ်ပါသည်)။
                 </p>
-                <input type="text" id="cfg-formspree-url" placeholder="https://formspree.io/f/your_form_id" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                <input type="text" id="cfg-formspree-url" placeholder="https://formspree.io/f/your_form_id" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
             </div>
 
             <!-- Popup Warning Messages -->
@@ -647,7 +647,7 @@
                     <i class="fa-solid fa-triangle-exclamation"></i> 'No' ခလုတ် သတိပေးစာသားများ
                 </h3>
                 <p class="text-xs text-slate-400">No ခလုတ် နှိပ်သည့်အခါ အလှည့်ကျ ပေါ်လာမည့် သတိပေးစာများ (တစ်ကြောင်းလျှင် တစ်ခု ရေးပါ)</p>
-                <textarea id="cfg-warnings" rows="4" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                <textarea id="cfg-warnings" rows="4" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
             </div>
 
             <!-- Background Gradient Theme -->
@@ -801,12 +801,12 @@
             // Button Styles
             yesText: "Yes",
             yesFontSize: "18",
-            yesBg: "linear-gradient(135deg, #ff416c, #ff4b2b)",
+            yesBg: "#ff416c",
             yesColor: "#ffffff",
 
             noText: "No",
             noFontSize: "18",
-            noBg: "linear-gradient(135deg, #6a11cb, #2575fc)",
+            noBg: "#6a11cb",
             noColor: "#ffffff",
 
             questionFontSize: "20",
@@ -870,7 +870,7 @@
             document.getElementById('cfg-formspree-url').value = appConfig.formspreeUrl;
             document.getElementById('cfg-warnings').value = appConfig.warnings.join('\n');
 
-            updateConfig();
+            updateConfigOnly();
         };
 
         // RENDER SIDEBAR STEP CONFIGURATORS & PREVIEW CARDS
@@ -902,12 +902,12 @@
 
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Question Text)</label>
-                        <input type="text" value="${step.text}" oninput="updateStepData(${index}, 'text', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                        <input type="text" value="${step.text}" oninput="updateStepDataDirect(${index}, 'text', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                     </div>
 
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">No ခလုတ် ၏ Interactive Behavior (ခလုတ် ပြုမူပုံ ၁၀ မျိုး)</label>
-                        <select onchange="updateStepData(${index}, 'behavior', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
+                        <select onchange="updateStepDataDirect(${index}, 'behavior', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
                             ${behaviorOptions.map(opt => `<option value="${opt.id}" ${step.behavior === opt.id ? 'selected' : ''}>${opt.name}</option>`).join('')}
                         </select>
                     </div>
@@ -919,7 +919,7 @@
                                 <img src="${gifUrl}" class="gif-thumb ${step.gif === gifUrl ? 'selected' : ''}" onclick="updateStepData(${index}, 'gif', '${gifUrl}')">
                             `).join('')}
                         </div>
-                        <input type="text" value="${step.gif}" oninput="updateStepData(${index}, 'gif', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500" placeholder="Custom GIF URL">
+                        <input type="text" value="${step.gif}" oninput="updateStepDataDirect(${index}, 'gif', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500" placeholder="Custom GIF URL">
                     </div>
                 `;
                 stepsContainer.appendChild(card);
@@ -970,10 +970,15 @@
             previewStep(1);
         }
 
+        function updateStepDataDirect(index, key, val) {
+            appConfig.steps[index][key] = val;
+            updateConfigOnly();
+        }
+
         function updateStepData(index, key, val) {
             appConfig.steps[index][key] = val;
             renderStepsEditor();
-            updateConfig();
+            updateConfigOnly();
         }
 
         // TAB SWITCHER
@@ -992,8 +997,8 @@
             document.getElementById(`tab-btn-${tabName}`).className = "flex-1 py-2 text-xs font-bold rounded-lg transition bg-pink-600 text-white shadow";
         }
 
-        // UPDATE CONFIG FROM USER INPUT
-        function updateConfig() {
+        // UPDATE CONFIG WITHOUT RE-RENDERING SIDEBAR (KEEPS CURSOR / FOCUS INTACT)
+        function updateConfigOnly() {
             // Button Styles
             appConfig.yesText = document.getElementById('cfg-yes-text').value;
             appConfig.yesFontSize = document.getElementById('cfg-yes-fontsize').value;
@@ -1038,8 +1043,8 @@
                 card.className = `interactive-card ${appConfig.cardStyle} step-view ${currentActiveStepView === stepNum ? 'active' : ''}`;
                 card.id = `prev-step-${stepNum}`;
 
-                const yesStyle = `background: ${appConfig.yesBg}; color: ${appConfig.yesColor}; font-size: ${appConfig.yesFontSize}px;`;
-                const noStyle = `background: ${appConfig.noBg}; color: ${appConfig.noColor}; font-size: ${appConfig.noFontSize}px;`;
+                const yesStyle = `background-color: ${appConfig.yesBg}; color: ${appConfig.yesColor}; font-size: ${appConfig.yesFontSize}px;`;
+                const noStyle = `background-color: ${appConfig.noBg}; color: ${appConfig.noColor}; font-size: ${appConfig.noFontSize}px;`;
 
                 card.innerHTML = `
                     <img class="gif-box" src="${step.gif}" alt="Gif ${stepNum}">
@@ -1202,7 +1207,7 @@
                         stateGuiltIndices[stepNum]++;
                     } else {
                         newNoBtn.innerText = appConfig.yesText;
-                        newNoBtn.style.background = appConfig.yesBg;
+                        newNoBtn.style.backgroundColor = appConfig.yesBg;
                         newNoBtn.style.color = appConfig.yesColor;
                         newNoBtn.onclick = () => handleYesClick(nextTarget);
                     }
@@ -1287,21 +1292,21 @@
                 document.querySelectorAll('.env-thumb').forEach(el => el.classList.remove('selected'));
                 element.classList.add('selected');
             }
-            updateConfig();
+            updateConfigOnly();
         }
 
         function updateEnvelopeCustomImg() {
-            updateConfig();
+            updateConfigOnly();
         }
 
         function setCardStyle(styleClass) {
             appConfig.cardStyle = styleClass;
-            updateConfig();
+            updateConfigOnly();
         }
 
         function setPaperStyle(styleClass) {
             appConfig.paperStyle = styleClass;
-            updateConfig();
+            updateConfigOnly();
         }
 
         function setTheme(themeKey) {
@@ -1319,7 +1324,14 @@
             const targetEl = document.getElementById(`prev-step-${stepTarget}`);
             if (targetEl) targetEl.classList.add('active');
 
-            renderStepsEditor();
+            // Update Nav Bar highlights without re-building inputs
+            const stepNavBar = document.getElementById('step-nav-bar');
+            if (stepNavBar) {
+                Array.from(stepNavBar.children).forEach((btn, idx) => {
+                    const isSelected = (idx + 1 === stepTarget) || (idx === appConfig.steps.length && stepTarget === 'falling') || (idx === appConfig.steps.length + 1 && stepTarget === 'letter');
+                    btn.className = `px-3 py-1.5 text-xs font-bold rounded-lg transition text-center whitespace-nowrap ${isSelected ? 'bg-pink-600 text-white shadow' : 'bg-slate-700 hover:bg-pink-600 text-white'}`;
+                });
+            }
         }
 
         // PREVIEW INTERACTIVE ACTIONS
@@ -1567,8 +1579,8 @@
                 card.className = \`interactive-card \${cardStyle} step \${stepNum === 1 ? 'active' : ''}\`;
                 card.id = \`step-\${stepNum}\`;
 
-                const yesStyle = \`background: \${yesBg}; color: \${yesColor}; font-size: \${yesFontSize}px;\`;
-                const noStyle = \`background: \${noBg}; color: \${noColor}; font-size: \${noFontSize}px;\`;
+                const yesStyle = \`background-color: \${yesBg}; color: \${yesColor}; font-size: \${yesFontSize}px;\`;
+                const noStyle = \`background-color: \${noBg}; color: \${noColor}; font-size: \${noFontSize}px;\`;
 
                 card.innerHTML = \`
                     <img class="gif-box" src="\${step.gif}" alt="Gif \${stepNum}">
@@ -1692,7 +1704,7 @@
                         stateGuiltIndicesApp[stepNum]++;
                     } else {
                         noBtn.innerText = yesText;
-                        noBtn.style.background = yesBg;
+                        noBtn.style.backgroundColor = yesBg;
                         noBtn.style.color = yesColor;
                         noBtn.onclick = () => nextStep(nextTarget);
                     }
