@@ -462,23 +462,23 @@
                 </h3>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာလွှာ ခေါင်းစဉ် (Title)</label>
-                    <input type="text" id="cfg-letter-title" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <input type="text" id="cfg-letter-title" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၁ (Paragraph 1)</label>
-                    <textarea id="cfg-letter-p1" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p1" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၂ (Paragraph 2)</label>
-                    <textarea id="cfg-letter-p2" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p2" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">စာပိုဒ် ၃ (Paragraph 3)</label>
-                    <textarea id="cfg-letter-p3" rows="2" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                    <textarea id="cfg-letter-p3" rows="2" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">လက်မှတ် / အဆုံးသတ် စာသား (Signature)</label>
-                    <input type="text" id="cfg-letter-sig" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <input type="text" id="cfg-letter-sig" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 </div>
             </div>
 
@@ -495,21 +495,21 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Text)</label>
-                        <input type="text" id="cfg-yes-text" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="Yes">
+                        <input type="text" id="cfg-yes-text" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="Yes">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Font Size (px)</label>
-                        <input type="number" id="cfg-yes-fontsize" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="18" min="12" max="36">
+                        <input type="number" id="cfg-yes-fontsize" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500" value="18" min="12" max="36">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Background Color</label>
-                        <input type="color" id="cfg-yes-bg" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ff416c">
+                        <label class="block text-xs text-slate-400 mb-1">Background Color (ခလုတ်အရောင်)</label>
+                        <input type="color" id="cfg-yes-bg" oninput="updateConfig()" class="w-full h-9 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ff416c">
                     </div>
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Text Color</label>
-                        <input type="color" id="cfg-yes-color" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
+                        <label class="block text-xs text-slate-400 mb-1">Text Color (စာသားအရောင်)</label>
+                        <input type="color" id="cfg-yes-color" oninput="updateConfig()" class="w-full h-9 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
                     </div>
                 </div>
             </div>
@@ -522,21 +522,21 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Text)</label>
-                        <input type="text" id="cfg-no-text" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="No">
+                        <input type="text" id="cfg-no-text" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="No">
                     </div>
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">Font Size (px)</label>
-                        <input type="number" id="cfg-no-fontsize" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="18" min="12" max="36">
+                        <input type="number" id="cfg-no-fontsize" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500" value="18" min="12" max="36">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Background Color</label>
-                        <input type="color" id="cfg-no-bg" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#6a11cb">
+                        <label class="block text-xs text-slate-400 mb-1">Background Color (ခလုတ်အရောင်)</label>
+                        <input type="color" id="cfg-no-bg" oninput="updateConfig()" class="w-full h-9 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#6a11cb">
                     </div>
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1">Text Color</label>
-                        <input type="color" id="cfg-no-color" oninput="updateConfigOnly()" class="w-full h-8 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
+                        <label class="block text-xs text-slate-400 mb-1">Text Color (စာသားအရောင်)</label>
+                        <input type="color" id="cfg-no-color" oninput="updateConfig()" class="w-full h-9 bg-slate-900 border border-slate-700 rounded-xl p-1 cursor-pointer" value="#ffffff">
                     </div>
                 </div>
             </div>
@@ -547,7 +547,7 @@
                     <i class="fa-solid fa-font"></i> မေးခွန်း စာသား Font Size (Global Question Size)
                 </h3>
                 <div class="flex items-center gap-3">
-                    <input type="range" id="cfg-question-fontsize" min="14" max="32" value="20" oninput="updateConfigOnly()" class="w-full accent-pink-500">
+                    <input type="range" id="cfg-question-fontsize" min="14" max="32" value="20" oninput="updateConfig()" class="w-full accent-pink-500">
                     <span id="cfg-question-fontsize-val" class="text-xs font-bold text-pink-400 w-8">20px</span>
                 </div>
             </div>
@@ -638,7 +638,7 @@
                 <p class="text-xs text-slate-400 leading-relaxed">
                     သူများ အဖြေပေးလိုက်သည့်အခါ သင့် Gmail သို့ အကြောင်းကြားချက် ရောက်ရှိစေရန် Formspree Endpoint လင့်ခ် ထည့်ပါ (မထည့်ပါကလည်း အလုပ်လုပ်ပါသည်)။
                 </p>
-                <input type="text" id="cfg-formspree-url" placeholder="https://formspree.io/f/your_form_id" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                <input type="text" id="cfg-formspree-url" placeholder="https://formspree.io/f/your_form_id" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
             </div>
 
             <!-- Popup Warning Messages -->
@@ -647,7 +647,7 @@
                     <i class="fa-solid fa-triangle-exclamation"></i> 'No' ခလုတ် သတိပေးစာသားများ
                 </h3>
                 <p class="text-xs text-slate-400">No ခလုတ် နှိပ်သည့်အခါ အလှည့်ကျ ပေါ်လာမည့် သတိပေးစာများ (တစ်ကြောင်းလျှင် တစ်ခု ရေးပါ)</p>
-                <textarea id="cfg-warnings" rows="4" oninput="updateConfigOnly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
+                <textarea id="cfg-warnings" rows="4" oninput="updateConfig()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500"></textarea>
             </div>
 
             <!-- Background Gradient Theme -->
@@ -715,30 +715,84 @@
 
     </div>
 
-    <!-- CODE EXPORT MODAL -->
-    <div id="export-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex justify-center items-center p-4 z-50 hidden">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-2xl p-6 space-y-4 shadow-2xl text-slate-100">
+    <!-- CODE EXPORT & GITHUB PUBLISH MODAL -->
+    <div id="export-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex justify-center items-center p-4 z-50 hidden overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-2xl p-6 space-y-4 shadow-2xl text-slate-100 my-auto">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 class="font-bold text-lg text-pink-400 flex items-center gap-2">
-                    <i class="fa-solid fa-code"></i> Standalone HTML App Code
+                    <i class="fa-solid fa-code"></i> Standalone HTML Code & Auto Live Link
                 </h3>
                 <button onclick="closeExportModal()" class="text-slate-400 hover:text-white text-lg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
-            <p class="text-xs text-slate-400">
-                အောက်ပါ Code အား ကူးယူ၍ HTML File အဖြစ် သိမ်းဆည်းနိုင်သလို သီးသန့် Standalone file အဖြစ်လည်း Download ရယူနိုင်ပါသည်။
-            </p>
+            <!-- AUTO GITHUB DEPLOY SECTION -->
+            <div class="bg-slate-800/60 p-4 rounded-2xl border border-pink-500/30 space-y-3">
+                <div class="flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-pink-300 flex items-center gap-1.5">
+                        <i class="fa-brands fa-github text-sm"></i> GitHub တွင် Auto Upload လုပ်ပြီး Live Link ထုတ်မည်
+                    </h4>
+                    <span class="text-[10px] bg-pink-950 text-pink-400 border border-pink-800 px-2 py-0.5 rounded-full font-mono">index.html auto generated</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    အောက်ပါ Option များမှ GitHub Token ကို ရွေးချယ်ပြီး Repo ဆောက်ကာ Pages အလိုအလျောက် Deploy လုပ်နိုင်ပါသည်။
+                </p>
 
-            <textarea id="export-code-area" rows="10" readonly class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3 text-xs font-mono text-emerald-400 focus:outline-none select-all"></textarea>
+                <div class="space-y-2 pt-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <!-- Token Selection Option (epostcardmm added & hidden/prefilled) -->
+                        <div class="space-y-1">
+                            <label class="block text-[11px] text-slate-400">GitHub Token Option ရွေးရန်:</label>
+                            <select id="gh-token-select" onchange="onTokenSelectChange()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
+                                <option value="epostcardmm">🔑 epostcardmm (Default)</option>
+                                <option value="custom">➕ အခြား Token အသစ်ထည့်ရန်</option>
+                            </select>
+                        </div>
+                        <input type="text" id="gh-repo" placeholder="Repository Name (e.g. love-surprise)" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500 self-end" value="my-love-surprise">
+                    </div>
 
-            <div class="flex items-center justify-end gap-3 pt-2">
+                    <!-- Custom Token Input Field (Hidden by default unless 'custom' is selected) -->
+                    <div id="custom-token-box" class="hidden pt-1">
+                        <input type="password" id="gh-token-custom" placeholder="အခြား GitHub Token အသစ်ထည့်ရန် (e.g. ghp_xxxx)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 items-center justify-between pt-1">
+                        <button onclick="autoDeployToGitHub()" id="btn-deploy-gh" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Auto Deploy & Get Link
+                        </button>
+                        <span id="deploy-status" class="text-xs text-amber-400 font-medium"></span>
+                    </div>
+
+                    <!-- Generated Link Result Box -->
+                    <div id="gh-link-container" class="hidden pt-2">
+                        <label class="block text-[11px] font-bold text-emerald-400 mb-1">✨ သင့် Live Web Link ရရှိပါပြီ (GitHub Pages):</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="gh-generated-link" readonly class="flex-1 bg-slate-950 border border-emerald-500/50 rounded-xl px-3 py-2 text-xs font-mono text-emerald-300 focus:outline-none select-all">
+                            <button onclick="copyGitHubLink()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> Copy Link
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-1">Note: GitHub Pages ပထမဆုံးအကြိမ် တည်ဆောက်ချိန် ၁ မိနစ်မှ ၂ မိနစ်ခန့် ကြာမြင့်နိုင်ပါသည်။</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CODE PREVIEW TEXTAREA -->
+            <div>
+                <p class="text-xs text-slate-400 mb-1">
+                    သို့မဟုတ် အောက်ပါ Source Code အား ကူးယူ၍ သီးသန့် <code class="text-pink-400 font-mono">index.html</code> အဖြစ် သိမ်းဆည်း/Download ရယူနိုင်ပါသည်:
+                </p>
+                <textarea id="export-code-area" rows="7" readonly class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3 text-xs font-mono text-emerald-400 focus:outline-none select-all"></textarea>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="flex items-center justify-end gap-3 pt-1">
                 <button onclick="copyGeneratedCode()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5">
                     <i class="fa-regular fa-copy"></i> Code ကူးယူမည်
                 </button>
-                <button onclick="downloadHTMLFile()" class="px-5 py-2 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white rounded-xl text-xs font-bold shadow-lg shadow-pink-900/40 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-file-arrow-down"></i> Standalone File Download
+                <button onclick="downloadHTMLFile()" class="px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-lg transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-file-arrow-down"></i> Download index.html
                 </button>
             </div>
         </div>
@@ -746,6 +800,29 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+        // TOKEN PRESETS (epostcardmm with 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 and support for adding more API/tokens)
+        const githubTokensStore = {
+            epostcardmm: "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"
+        };
+
+        function onTokenSelectChange() {
+            const selectVal = document.getElementById('gh-token-select').value;
+            const customBox = document.getElementById('custom-token-box');
+            if (selectVal === 'custom') {
+                customBox.classList.remove('hidden');
+            } else {
+                customBox.classList.add('hidden');
+            }
+        }
+
+        function getActiveGitHubToken() {
+            const selectVal = document.getElementById('gh-token-select').value;
+            if (selectVal === 'custom') {
+                return document.getElementById('gh-token-custom').value.trim();
+            }
+            return githubTokensStore[selectVal] || githubTokensStore['epostcardmm'];
+        }
+
         // PRESET GIF LIST (10+ Cute GIFs)
         const presetGifs = [
             "https://media.tenor.com/Zrr4L_Wd4JkAAAAi/bubu-rub-bubu-love-dudu.gif",
@@ -870,7 +947,7 @@
             document.getElementById('cfg-formspree-url').value = appConfig.formspreeUrl;
             document.getElementById('cfg-warnings').value = appConfig.warnings.join('\n');
 
-            updateConfigOnly();
+            updateConfig();
         };
 
         // RENDER SIDEBAR STEP CONFIGURATORS & PREVIEW CARDS
@@ -902,12 +979,12 @@
 
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Question Text)</label>
-                        <input type="text" value="${step.text}" oninput="updateStepDataDirect(${index}, 'text', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                        <input type="text" value="${step.text}" oninput="updateStepDataInline(${index}, 'text', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                     </div>
 
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">No ခလုတ် ၏ Interactive Behavior (ခလုတ် ပြုမူပုံ ၁၀ မျိုး)</label>
-                        <select onchange="updateStepDataDirect(${index}, 'behavior', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
+                        <select onchange="updateStepDataInline(${index}, 'behavior', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
                             ${behaviorOptions.map(opt => `<option value="${opt.id}" ${step.behavior === opt.id ? 'selected' : ''}>${opt.name}</option>`).join('')}
                         </select>
                     </div>
@@ -916,10 +993,10 @@
                         <label class="block text-xs text-slate-400 mb-1">GIF ရွေးချယ်ပါ သို့မဟုတ် Link ထည့်ပါ</label>
                         <div class="flex gap-1.5 overflow-x-auto pb-1 mb-2">
                             ${presetGifs.map(gifUrl => `
-                                <img src="${gifUrl}" class="gif-thumb ${step.gif === gifUrl ? 'selected' : ''}" onclick="updateStepData(${index}, 'gif', '${gifUrl}')">
+                                <img src="${gifUrl}" class="gif-thumb ${step.gif === gifUrl ? 'selected' : ''}" onclick="selectPresetGifForStep(${index}, '${gifUrl}', this)">
                             `).join('')}
                         </div>
-                        <input type="text" value="${step.gif}" oninput="updateStepDataDirect(${index}, 'gif', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500" placeholder="Custom GIF URL">
+                        <input type="text" value="${step.gif}" oninput="updateStepDataInline(${index}, 'gif', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500" placeholder="Custom GIF URL">
                     </div>
                 `;
                 stepsContainer.appendChild(card);
@@ -948,6 +1025,15 @@
             renderPreviewCardsDOM();
         }
 
+        function selectPresetGifForStep(index, gifUrl, imgElement) {
+            appConfig.steps[index].gif = gifUrl;
+            if(imgElement && imgElement.parentNode) {
+                imgElement.parentNode.querySelectorAll('.gif-thumb').forEach(el => el.classList.remove('selected'));
+                imgElement.classList.add('selected');
+            }
+            updateConfig();
+        }
+
         function addNewStep() {
             const nextIndex = appConfig.steps.length + 1;
             appConfig.steps.push({
@@ -970,15 +1056,9 @@
             previewStep(1);
         }
 
-        function updateStepDataDirect(index, key, val) {
+        function updateStepDataInline(index, key, val) {
             appConfig.steps[index][key] = val;
-            updateConfigOnly();
-        }
-
-        function updateStepData(index, key, val) {
-            appConfig.steps[index][key] = val;
-            renderStepsEditor();
-            updateConfigOnly();
+            updateConfig();
         }
 
         // TAB SWITCHER
@@ -997,8 +1077,8 @@
             document.getElementById(`tab-btn-${tabName}`).className = "flex-1 py-2 text-xs font-bold rounded-lg transition bg-pink-600 text-white shadow";
         }
 
-        // UPDATE CONFIG WITHOUT RE-RENDERING SIDEBAR (KEEPS CURSOR / FOCUS INTACT)
-        function updateConfigOnly() {
+        // UPDATE CONFIG FROM USER INPUT
+        function updateConfig() {
             // Button Styles
             appConfig.yesText = document.getElementById('cfg-yes-text').value;
             appConfig.yesFontSize = document.getElementById('cfg-yes-fontsize').value;
@@ -1037,14 +1117,14 @@
             // Render Questions Steps
             appConfig.steps.forEach((step, index) => {
                 const stepNum = index + 1;
-                const nextTarget = stepNum < appConfig.steps.length ? (stepNum + 1) : 'falling';
+                const nextTarget = (stepNum === appConfig.steps.length) ? 'falling' : (stepNum + 1);
 
                 const card = document.createElement('div');
                 card.className = `interactive-card ${appConfig.cardStyle} step-view ${currentActiveStepView === stepNum ? 'active' : ''}`;
                 card.id = `prev-step-${stepNum}`;
 
-                const yesStyle = `background-color: ${appConfig.yesBg}; color: ${appConfig.yesColor}; font-size: ${appConfig.yesFontSize}px;`;
-                const noStyle = `background-color: ${appConfig.noBg}; color: ${appConfig.noColor}; font-size: ${appConfig.noFontSize}px;`;
+                const yesStyle = `background: ${appConfig.yesBg}; color: ${appConfig.yesColor}; font-size: ${appConfig.yesFontSize}px;`;
+                const noStyle = `background: ${appConfig.noBg}; color: ${appConfig.noColor}; font-size: ${appConfig.noFontSize}px;`;
 
                 card.innerHTML = `
                     <img class="gif-box" src="${step.gif}" alt="Gif ${stepNum}">
@@ -1052,7 +1132,7 @@
                         ${step.text}
                     </h2>
                     <div class="flex items-center justify-center gap-4 w-full min-h-[90px] pt-2 relative btn-container-step">
-                        <button class="btn-custom-yes" style="${yesStyle}" id="btn-yes-prev-${stepNum}" onclick="handleYesClick(${nextTarget})">${appConfig.yesText}</button>
+                        <button class="btn-custom-yes" style="${yesStyle}" id="btn-yes-prev-${stepNum}" onclick="handleYesClick('${nextTarget}')">${appConfig.yesText}</button>
                         <div class="btn-no-wrapper-preview" id="btn-no-wrapper-prev-${stepNum}">
                             <button class="btn-custom-no ${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="${noStyle}" id="btn-no-prev-${stepNum}">${appConfig.noText}</button>
                         </div>
@@ -1207,7 +1287,7 @@
                         stateGuiltIndices[stepNum]++;
                     } else {
                         newNoBtn.innerText = appConfig.yesText;
-                        newNoBtn.style.backgroundColor = appConfig.yesBg;
+                        newNoBtn.style.background = appConfig.yesBg;
                         newNoBtn.style.color = appConfig.yesColor;
                         newNoBtn.onclick = () => handleYesClick(nextTarget);
                     }
@@ -1292,21 +1372,21 @@
                 document.querySelectorAll('.env-thumb').forEach(el => el.classList.remove('selected'));
                 element.classList.add('selected');
             }
-            updateConfigOnly();
+            updateConfig();
         }
 
         function updateEnvelopeCustomImg() {
-            updateConfigOnly();
+            updateConfig();
         }
 
         function setCardStyle(styleClass) {
             appConfig.cardStyle = styleClass;
-            updateConfigOnly();
+            updateConfig();
         }
 
         function setPaperStyle(styleClass) {
             appConfig.paperStyle = styleClass;
-            updateConfigOnly();
+            updateConfig();
         }
 
         function setTheme(themeKey) {
@@ -1324,12 +1404,17 @@
             const targetEl = document.getElementById(`prev-step-${stepTarget}`);
             if (targetEl) targetEl.classList.add('active');
 
-            // Update Nav Bar highlights without re-building inputs
             const stepNavBar = document.getElementById('step-nav-bar');
-            if (stepNavBar) {
-                Array.from(stepNavBar.children).forEach((btn, idx) => {
-                    const isSelected = (idx + 1 === stepTarget) || (idx === appConfig.steps.length && stepTarget === 'falling') || (idx === appConfig.steps.length + 1 && stepTarget === 'letter');
-                    btn.className = `px-3 py-1.5 text-xs font-bold rounded-lg transition text-center whitespace-nowrap ${isSelected ? 'bg-pink-600 text-white shadow' : 'bg-slate-700 hover:bg-pink-600 text-white'}`;
+            if(stepNavBar) {
+                const buttons = stepNavBar.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    if(btn.innerText.trim() === `Step ${stepTarget}` || 
+                      (stepTarget === 'falling' && btn.innerText.trim() === 'Bouquet') ||
+                      (stepTarget === 'letter' && btn.innerText.trim() === 'Letter')) {
+                        btn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition text-center whitespace-nowrap bg-pink-600 text-white shadow";
+                    } else {
+                        btn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition text-center whitespace-nowrap bg-slate-700 hover:bg-pink-600 text-white";
+                    }
                 });
             }
         }
@@ -1375,7 +1460,11 @@
         }
 
         function handleYesClick(targetStep) {
-            previewStep(targetStep);
+            if (!isNaN(targetStep)) {
+                previewStep(parseInt(targetStep));
+            } else {
+                previewStep(targetStep);
+            }
         }
 
         function openLetterPrev() {
@@ -1573,20 +1662,20 @@
 
             steps.forEach((step, idx) => {
                 const stepNum = idx + 1;
-                const nextTarget = stepNum < steps.length ? (stepNum + 1) : 'falling';
+                const nextTarget = (stepNum === steps.length) ? 'falling' : (stepNum + 1);
 
                 const card = document.createElement('div');
                 card.className = \`interactive-card \${cardStyle} step \${stepNum === 1 ? 'active' : ''}\`;
                 card.id = \`step-\${stepNum}\`;
 
-                const yesStyle = \`background-color: \${yesBg}; color: \${yesColor}; font-size: \${yesFontSize}px;\`;
-                const noStyle = \`background-color: \${noBg}; color: \${noColor}; font-size: \${noFontSize}px;\`;
+                const yesStyle = \`background: \${yesBg}; color: \${yesColor}; font-size: \${yesFontSize}px;\`;
+                const noStyle = \`background: \${noBg}; color: \${noColor}; font-size: \${noFontSize}px;\`;
 
                 card.innerHTML = \`
                     <img class="gif-box" src="\${step.gif}" alt="Gif \${stepNum}">
                     <h2 class="font-bold leading-relaxed" style="font-size: \${questionFontSize}px;">\${step.text}</h2>
                     <div class="btn-group">
-                        <button class="btn-custom-yes" style="\${yesStyle}" id="btn-yes-\${stepNum}" onclick="nextStep(\${nextTarget})">\${yesText}</button>
+                        <button class="btn-custom-yes" style="\${yesStyle}" id="btn-yes-\${stepNum}" onclick="nextStep('\${nextTarget}')">\${yesText}</button>
                         <div class="btn-no-wrapper" id="btn-no-wrapper-\${stepNum}">
                             <button class="btn-custom-no \${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="\${noStyle}" id="btn-no-\${stepNum}">\${noText}</button>
                         </div>
@@ -1704,7 +1793,7 @@
                         stateGuiltIndicesApp[stepNum]++;
                     } else {
                         noBtn.innerText = yesText;
-                        noBtn.style.backgroundColor = yesBg;
+                        noBtn.style.background = yesBg;
                         noBtn.style.color = yesColor;
                         noBtn.onclick = () => nextStep(nextTarget);
                     }
@@ -1775,9 +1864,10 @@
         function nextStep(stepTarget) {
             document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
             let targetEl;
-            if (typeof stepTarget === 'number') {
-                targetEl = document.getElementById(\`step-\${stepTarget}\`);
-                sendToFormspree("Yes", \`Step \${stepTarget - 1}\`);
+            if (!isNaN(stepTarget)) {
+                const targetNum = parseInt(stepTarget);
+                targetEl = document.getElementById(\`step-\${targetNum}\`);
+                sendToFormspree("Yes", \`Step \${targetNum - 1}\`);
             } else if (stepTarget === 'falling') {
                 targetEl = document.getElementById('step-falling');
                 sendToFormspree("Yes", \`Final Question Step\`);
@@ -1816,19 +1906,150 @@
             alert('Code များကို Clipboard သို့ ကူးယူပြီးပါပြီ!');
         }
 
+        // AUTO DOWNLOAD AS index.html
         function downloadHTMLFile() {
             const htmlCode = generateCompleteHTML();
             const blob = new Blob([htmlCode], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Interactive_Love_Surprise.html';
+            a.download = 'index.html'; // AUTO INDEX.HTML
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
-    </script>
 
+        // AUTOMATIC GITHUB DEPLOYMENT & LIVE LINK GENERATOR
+        async function autoDeployToGitHub() {
+            const token = getActiveGitHubToken();
+            const repoName = document.getElementById('gh-repo').value.trim().toLowerCase().replace(/[^a-z0-9-_]/g, '-');
+            const statusEl = document.getElementById('deploy-status');
+            const linkContainer = document.getElementById('gh-link-container');
+            const linkInput = document.getElementById('gh-generated-link');
+            const deployBtn = document.getElementById('btn-deploy-gh');
+
+            if (!token) {
+                alert('GitHub Personal Access Token ထည့်သွင်းပေးပါ။');
+                return;
+            }
+            if (!repoName) {
+                alert('Repository Name ထည့်သွင်းပေးပါ။');
+                return;
+            }
+
+            try {
+                deployBtn.disabled = true;
+                deployBtn.classList.add('opacity-50');
+                statusEl.className = "text-xs text-amber-400 font-medium";
+                statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> User account စစ်ဆေးနေသည်...`;
+
+                // 1. Get authenticated user info
+                const userRes = await fetch('https://api.github.com/user', {
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+
+                if (!userRes.ok) throw new Error('GitHub Token မမှန်ကန်ပါ သို့မဟုတ် Auth မအောင်မြင်ပါ။');
+                const userData = await userRes.json();
+                const username = userData.login;
+
+                // 2. Check or Create Repository
+                statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Repository (${repoName}) ဖန်တီးနေသည်...`;
+                
+                let repoRes = await fetch(`https://api.github.com/repos/${username}/${repoName}`, {
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+
+                if (repoRes.status === 404) {
+                    // Create Repo
+                    const createRes = await fetch('https://api.github.com/user/repos', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/vnd.github.v3+json'
+                        },
+                        body: JSON.stringify({
+                            name: repoName,
+                            description: 'Interactive Love Surprise App',
+                            auto_init: true
+                        })
+                    });
+                    if (!createRes.ok) throw new Error('Repository ဖန်တီး၍ မရပါ!');
+                    // Wait for repo init
+                    await new Promise(r => setTimeout(r, 2000));
+                }
+
+                // 3. Upload/Update index.html File
+                statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> index.html ကို Upload တင်နေသည်...`;
+                const htmlContent = generateCompleteHTML();
+                const base64Content = btoa(unescape(encodeURIComponent(htmlContent)));
+
+                // Check existing index.html SHA
+                let sha = null;
+                const fileCheckRes = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/index.html`, {
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (fileCheckRes.ok) {
+                    const fileData = await fileCheckRes.json();
+                    sha = fileData.sha;
+                }
+
+                // Put Content
+                const uploadBody = {
+                    message: 'Auto update index.html via Builder',
+                    content: base64Content
+                };
+                if (sha) uploadBody.sha = sha;
+
+                const uploadRes = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/index.html`, {
+                    method: `PUT`,
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify(uploadBody)
+                });
+
+                if (!uploadRes.ok) throw new Error('index.html ဖိုင် Upload တင်ခြင်း မအောင်မြင်ပါ။');
+
+                // 4. Enable GitHub Pages
+                statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> GitHub Pages ကို Activate လုပ်နေသည်...`;
+                await fetch(`https://api.github.com/repos/${username}/${repoName}/pages`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify({
+                        source: { branch: 'main', path: '/' }
+                    })
+                }).catch(() => {}); // Ignore error if already enabled
+
+                // 5. Build Final Live Link
+                const generatedPagesUrl = `https://${username}.github.io/${repoName}/`;
+                linkInput.value = generatedPagesUrl;
+                linkContainer.classList.remove('hidden');
+
+                statusEl.className = "text-xs text-emerald-400 font-bold";
+                statusEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> Upload အောင်မြင်ပါပြီ!`;
+
+            } catch (err) {
+                statusEl.className = "text-xs text-rose-400 font-bold";
+                statusEl.innerText = `Error: ${err.message}`;
+            } finally {
+                deployBtn.disabled = false;
+                deployBtn.classList.remove('opacity-50');
+            }
+        }
+
+        function copyGitHubLink() {
+            const linkInput = document.getElementById('gh-generated-link');
+            linkInput.select();
+            document.execCommand('copy');
+            alert('GitHub Pages Live Link ကို ကူးယူပြီးပါပြီ!\n' + linkInput.value);
+        }
+    </script>
 </body>
 </html>
