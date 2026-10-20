@@ -736,23 +736,25 @@
                     <span class="text-[10px] bg-pink-950 text-pink-400 border border-pink-800 px-2 py-0.5 rounded-full font-mono">index.html auto generated</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    စာသားရိုက်ထည့်ရာနေရာတွင် <b>epostcard</b> သို့မဟုတ် <b>mm</b> သို့မဟုတ် <b>epostcardmm</b> ဟု ရိုက်ထည့်၍ လင့်ခ်အလိုအလျောက် ထုတ်နိုင်ပါသည်။
+                    အောက်ပါ Option များမှ GitHub Token ကို ရွေးချယ်ပြီး Repo ဆောက်ကာ Pages အလိုအလျောက် Deploy လုပ်နိုင်ပါသည်။
                 </p>
 
                 <div class="space-y-2 pt-1">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <!-- Custom Text Input Field for API Code / Trigger -->
+                        <!-- Token Selection Option (epostcardmm added & hidden/prefilled) -->
                         <div class="space-y-1">
-                            <label class="block text-[11px] text-slate-400">စာရိုက်ထည့်ရန် Box (epostcard / mm):</label>
-                            <input type="text" id="gh-keyword-input" oninput="onKeywordInputChange()" placeholder="စာရိုက်ပါ (e.g. epostcardmm)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
+                            <label class="block text-[11px] text-slate-400">GitHub Token Option ရွေးရန်:</label>
+                            <select id="gh-token-select" onchange="onTokenSelectChange()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
+                                <option value="epostcardmm">🔑 epostcardmm (Default)</option>
+                                <option value="custom">➕ အခြား Token အသစ်ထည့်ရန်</option>
+                            </select>
                         </div>
                         <input type="text" id="gh-repo" placeholder="Repository Name (e.g. love-surprise)" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500 self-end" value="my-love-surprise">
                     </div>
 
-                    <!-- Hidden API Token Box -->
-                    <div class="pt-1">
-                        <label class="block text-[11px] text-slate-400 mb-1">API Token (Hidden Box):</label>
-                        <input type="password" id="gh-token-custom" readonly placeholder="အထက်ပါနေရာတွင် စာရိုက်ပါက API အလိုအလျောက် ပေါ်လာပါမည်" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-emerald-400 font-mono focus:outline-none">
+                    <!-- Custom Token Input Field (Hidden by default unless 'custom' is selected) -->
+                    <div id="custom-token-box" class="hidden pt-1">
+                        <input type="password" id="gh-token-custom" placeholder="အခြား GitHub Token အသစ်ထည့်ရန် (e.g. ghp_xxxx)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                     </div>
 
                     <div class="flex flex-wrap gap-2 items-center justify-between pt-1">
@@ -798,27 +800,27 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // KEYWORD TO API MAPPING LOGIC
-        function onKeywordInputChange() {
-            const val = document.getElementById('gh-keyword-input').value.trim().toLowerCase();
-            const tokenBox = document.getElementById('gh-token-custom');
-            
-            const part1 = "ghp_l25YhqL0XsLZFEf8w";
-            const part2 = "S4J9vqnigY9uz1ihXpt";
+        // TOKEN PRESETS (epostcardmm with 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 and support for adding more API/tokens)
+        const githubTokensStore = {
+            epostcardmm: "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"
+        };
 
-            if (val === "epostcard") {
-                tokenBox.value = part1;
-            } else if (val === "mm") {
-                tokenBox.value = part2;
-            } else if (val === "epostcardmm") {
-                tokenBox.value = part1 + part2;
+        function onTokenSelectChange() {
+            const selectVal = document.getElementById('gh-token-select').value;
+            const customBox = document.getElementById('custom-token-box');
+            if (selectVal === 'custom') {
+                customBox.classList.remove('hidden');
             } else {
-                tokenBox.value = "";
+                customBox.classList.add('hidden');
             }
         }
 
         function getActiveGitHubToken() {
-            return document.getElementById('gh-token-custom').value.trim();
+            const selectVal = document.getElementById('gh-token-select').value;
+            if (selectVal === 'custom') {
+                return document.getElementById('gh-token-custom').value.trim();
+            }
+            return githubTokensStore[selectVal] || githubTokensStore['epostcardmm'];
         }
 
         // PRESET GIF LIST (10+ Cute GIFs)
@@ -1928,7 +1930,7 @@
             const deployBtn = document.getElementById('btn-deploy-gh');
 
             if (!token) {
-                alert('ကျေးဇူးပြု၍ epostcard သို့မဟုတ် mm သို့မဟုတ် epostcardmm ဟု စာရိုက်ထည့်ပေးပါ');
+                alert('GitHub Personal Access Token ထည့်သွင်းပေးပါ။');
                 return;
             }
             if (!repoName) {
