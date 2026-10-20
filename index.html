@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Love Surprise - App & Builder</title>
+    <title>Interactive Love Surprise - App & Builder Pro</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,7 @@
             border: 2px solid rgba(255, 255, 255, 0.85);
             transition: all 0.4s ease;
             position: relative;
+            overflow: hidden; /* Prevent spill over boundaries */
         }
 
         /* Envelope / Card Styles */
@@ -175,16 +176,16 @@
             100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
         }
 
-        .escaped-btn {
-            position: fixed !important;
-            z-index: 9999;
-            transition: top 0.2s ease-out, left 0.2s ease-out;
+        /* Screen အတွင်းမှာသာ ရွှေ့ရန်ပြင်ဆင်ထားသော class */
+        .escaped-btn-card {
+            position: relative !important;
+            transition: transform 0.2s ease-in-out, left 0.2s ease-in-out, top 0.2s ease-in-out;
         }
 
         /* Orbiting Animation */
         @keyframes orbitAnimation {
-            0% { transform: rotate(0deg) translateX(70px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(45px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(45px) rotate(-360deg); }
         }
         .orbiting-btn {
             animation: orbitAnimation 2.2s linear infinite;
@@ -193,7 +194,7 @@
         /* Gravity Fall Animation */
         @keyframes gravityFallAnim {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(600px) rotate(180deg); opacity: 0; }
+            100% { transform: translateY(250px) rotate(180deg); opacity: 0; }
         }
         .falling-btn {
             animation: gravityFallAnim 1.2s ease-in forwards !important;
@@ -405,7 +406,7 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg text-white leading-tight">Love Surprise Builder Pro</h1>
-                    <p class="text-xs text-pink-400">Step များ၊ ခလုတ် Behavior 10 မျိုးနှင့် Design များ စိတ်ကြိုက်ပြင်ပါ</p>
+                    <p class="text-xs text-pink-400">Step တစ်ခုချင်းစီအလိုက် Yes/No စာသားများနှင့် Design များ စိတ်ကြိုက်ပြင်ပါ</p>
                 </div>
             </div>
             
@@ -487,10 +488,10 @@
         <!-- TAB CONTENT 2: BUTTON STYLES & FONTS CUSTOMIZATION -->
         <div id="tab-buttons" class="space-y-4 hidden">
             
-            <!-- YES Button Customization -->
+            <!-- Global YES Button Customization -->
             <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/60 space-y-3">
                 <h3 class="text-sm font-bold text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-thumbs-up"></i> "YES" ခလုတ် ဒီဇိုင်း
+                    <i class="fa-solid fa-thumbs-up"></i> Default "YES" ခလုတ် ဒီဇိုင်း
                 </h3>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
@@ -514,10 +515,10 @@
                 </div>
             </div>
 
-            <!-- NO Button Customization -->
+            <!-- Global NO Button Customization -->
             <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/60 space-y-3">
                 <h3 class="text-sm font-bold text-rose-400 flex items-center gap-2">
-                    <i class="fa-solid fa-thumbs-down"></i> "NO" ခလုတ် ဒီဇိုင်း
+                    <i class="fa-solid fa-thumbs-down"></i> Default "NO" ခလုတ် ဒီဇိုင်း
                 </h3>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
@@ -736,25 +737,23 @@
                     <span class="text-[10px] bg-pink-950 text-pink-400 border border-pink-800 px-2 py-0.5 rounded-full font-mono">index.html auto generated</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    အောက်ပါ Option များမှ GitHub Token ကို ရွေးချယ်ပြီး Repo ဆောက်ကာ Pages အလိုအလျောက် Deploy လုပ်နိုင်ပါသည်။
+                    စာသားရိုက်ထည့်ရာနေရာတွင် <b>epostcard</b> သို့မဟုတ် <b>mm</b> သို့မဟုတ် <b>epostcardmm</b> ဟု ရိုက်ထည့်၍ လင့်ခ်အလိုအလျောက် ထုတ်နိုင်ပါသည်။
                 </p>
 
                 <div class="space-y-2 pt-1">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <!-- Token Selection Option (epostcardmm added & hidden/prefilled) -->
+                        <!-- Custom Text Input Field for API Code / Trigger -->
                         <div class="space-y-1">
-                            <label class="block text-[11px] text-slate-400">GitHub Token Option ရွေးရန်:</label>
-                            <select id="gh-token-select" onchange="onTokenSelectChange()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
-                                <option value="epostcardmm">🔑 epostcardmm (Default)</option>
-                                <option value="custom">➕ အခြား Token အသစ်ထည့်ရန်</option>
-                            </select>
+                            <label class="block text-[11px] text-slate-400">စာရိုက်ထည့်ရန် Box (epostcard / mm):</label>
+                            <input type="text" id="gh-keyword-input" oninput="onKeywordInputChange()" placeholder="စာရိုက်ပါ (e.g. epostcardmm)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
                         </div>
                         <input type="text" id="gh-repo" placeholder="Repository Name (e.g. love-surprise)" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500 self-end" value="my-love-surprise">
                     </div>
 
-                    <!-- Custom Token Input Field (Hidden by default unless 'custom' is selected) -->
-                    <div id="custom-token-box" class="hidden pt-1">
-                        <input type="password" id="gh-token-custom" placeholder="အခြား GitHub Token အသစ်ထည့်ရန် (e.g. ghp_xxxx)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <!-- Hidden API Token Box -->
+                    <div class="pt-1">
+                        <label class="block text-[11px] text-slate-400 mb-1">API Token (Hidden Box):</label>
+                        <input type="password" id="gh-token-custom" readonly placeholder="အထက်ပါနေရာတွင် စာရိုက်ပါက API အလိုအလျောက် ပေါ်လာပါမည်" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-emerald-400 font-mono focus:outline-none">
                     </div>
 
                     <div class="flex flex-wrap gap-2 items-center justify-between pt-1">
@@ -800,27 +799,27 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // TOKEN PRESETS (epostcardmm with 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 and support for adding more API/tokens)
-        const githubTokensStore = {
-            epostcardmm: "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"
-        };
+        // KEYWORD TO API MAPPING LOGIC
+        function onKeywordInputChange() {
+            const val = document.getElementById('gh-keyword-input').value.trim().toLowerCase();
+            const tokenBox = document.getElementById('gh-token-custom');
+            
+            const part1 = "ghp_l25YhqL0XsLZFEf8w";
+            const part2 = "S4J9vqnigY9uz1ihXpt";
 
-        function onTokenSelectChange() {
-            const selectVal = document.getElementById('gh-token-select').value;
-            const customBox = document.getElementById('custom-token-box');
-            if (selectVal === 'custom') {
-                customBox.classList.remove('hidden');
+            if (val === "epostcard") {
+                tokenBox.value = part1;
+            } else if (val === "mm") {
+                tokenBox.value = part2;
+            } else if (val === "epostcardmm") {
+                tokenBox.value = part1 + part2;
             } else {
-                customBox.classList.add('hidden');
+                tokenBox.value = "";
             }
         }
 
         function getActiveGitHubToken() {
-            const selectVal = document.getElementById('gh-token-select').value;
-            if (selectVal === 'custom') {
-                return document.getElementById('gh-token-custom').value.trim();
-            }
-            return githubTokensStore[selectVal] || githubTokensStore['epostcardmm'];
+            return document.getElementById('gh-token-custom').value.trim();
         }
 
         // PRESET GIF LIST (10+ Cute GIFs)
@@ -852,30 +851,36 @@
             { id: "split", name: "10. Dissecting / Split Button (အစိတ်စိတ်အမွှာမွှာ ကွဲသွားခြင်း)" }
         ];
 
-        // CONFIG APP STATE
+        // CONFIG APP STATE (Step တစ်ခုချင်းစီတွင် yesText နှင့် noText ထည့်သွင်းနိုင်ရန် ပြင်ဆင်ထားသည်)
         const appConfig = {
             steps: [
                 {
                     id: 1,
                     text: "ပြန်ချစ်ပါတော့လား နွေးထွေးပေးချင်ပြီ… 💕",
                     gif: presetGifs[0],
-                    behavior: "guilttrip"
+                    behavior: "fleeing",
+                    yesText: "",
+                    noText: ""
                 },
                 {
                     id: 2,
                     text: "တကယ် အမြဲတမ်း ချစ်ပေးမှာလား… 🥺",
                     gif: presetGifs[1],
-                    behavior: "fleeing"
+                    behavior: "fleeing",
+                    yesText: "",
+                    noText: ""
                 },
                 {
                     id: 3,
                     text: "တကယ်ကြီး အဖြေပြန်ပေးလိုက်တာလား? 💖",
                     gif: presetGifs[2],
-                    behavior: "shrinking"
+                    behavior: "shrinking",
+                    yesText: "",
+                    noText: ""
                 }
             ],
             
-            // Button Styles
+            // Global Default Button Styles
             yesText: "Yes",
             yesFontSize: "18",
             yesBg: "#ff416c",
@@ -968,7 +973,7 @@
                     <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
                         <h3 class="text-sm font-bold text-pink-400 flex items-center gap-2">
                             <span class="w-5 h-5 rounded-full bg-pink-500/20 text-pink-400 text-xs flex items-center justify-center">${stepNum}</span>
-                            Step ${stepNum} မေးခွန်း Config
+                            Step ${stepNum} မေးခွန်း & ခလုတ် Config
                         </h3>
                         ${appConfig.steps.length > 2 ? `
                             <button onclick="removeStep(${index})" class="text-xs text-rose-400 hover:text-rose-300 font-bold px-2 py-1 bg-rose-950/50 rounded-lg">
@@ -980,6 +985,17 @@
                     <div>
                         <label class="block text-xs text-slate-400 mb-1">စာသား (Question Text)</label>
                         <input type="text" value="${step.text}" oninput="updateStepDataInline(${index}, 'text', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs text-emerald-400 mb-1">ဤ Step အတွက် Yes စာသား</label>
+                            <input type="text" value="${step.yesText !== undefined ? step.yesText : ''}" placeholder="Default (Yes)" oninput="updateStepDataInline(${index}, 'yesText', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-rose-400 mb-1">ဤ Step အတွက် No စာသား</label>
+                            <input type="text" value="${step.noText !== undefined ? step.noText : ''}" placeholder="Default (No)" oninput="updateStepDataInline(${index}, 'noText', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-rose-500">
+                        </div>
                     </div>
 
                     <div>
@@ -1040,7 +1056,9 @@
                 id: nextIndex,
                 text: `မေးခွန်းအသစ် ${nextIndex}… 💕`,
                 gif: presetGifs[nextIndex % presetGifs.length],
-                behavior: "fleeing"
+                behavior: "fleeing",
+                yesText: "",
+                noText: ""
             });
             renderStepsEditor();
             previewStep(nextIndex);
@@ -1126,23 +1144,26 @@
                 const yesStyle = `background: ${appConfig.yesBg}; color: ${appConfig.yesColor}; font-size: ${appConfig.yesFontSize}px;`;
                 const noStyle = `background: ${appConfig.noBg}; color: ${appConfig.noColor}; font-size: ${appConfig.noFontSize}px;`;
 
+                const activeYesLabel = (step.yesText && step.yesText.trim() !== '') ? step.yesText : appConfig.yesText;
+                const activeNoLabel = (step.noText && step.noText.trim() !== '') ? step.noText : appConfig.noText;
+
                 card.innerHTML = `
                     <img class="gif-box" src="${step.gif}" alt="Gif ${stepNum}">
                     <h2 class="font-bold leading-relaxed" style="font-size: ${appConfig.questionFontSize}px;">
                         ${step.text}
                     </h2>
                     <div class="flex items-center justify-center gap-4 w-full min-h-[90px] pt-2 relative btn-container-step">
-                        <button class="btn-custom-yes" style="${yesStyle}" id="btn-yes-prev-${stepNum}" onclick="handleYesClick('${nextTarget}')">${appConfig.yesText}</button>
+                        <button class="btn-custom-yes" style="${yesStyle}" id="btn-yes-prev-${stepNum}" onclick="handleYesClick('${nextTarget}')">${activeYesLabel}</button>
                         <div class="btn-no-wrapper-preview" id="btn-no-wrapper-prev-${stepNum}">
-                            <button class="btn-custom-no ${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="${noStyle}" id="btn-no-prev-${stepNum}">${appConfig.noText}</button>
+                            <button class="btn-custom-no ${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="${noStyle}" id="btn-no-prev-${stepNum}">${activeNoLabel}</button>
                         </div>
                     </div>
                 `;
 
                 cardHolder.appendChild(card);
 
-                // Attach Behavior Event Listeners
-                setTimeout(() => attachBehaviorEvents(stepNum, step.behavior, nextTarget), 50);
+                // Attach Behavior Event Listeners (နှိပ်မှ အလုပ်လုပ်စေရန် ပြင်ဆင်ထားသည်)
+                setTimeout(() => attachBehaviorEvents(stepNum, step.behavior, nextTarget, activeYesLabel), 50);
             });
 
             // STEP 3.5: FALLING BOUQUET CARD
@@ -1182,12 +1203,12 @@
             cardHolder.appendChild(letterCard);
         }
 
-        // ATTACH BEHAVIORS TO PREVIEW NO BUTTONS
+        // ATTACH BEHAVIORS TO PREVIEW NO BUTTONS (Click-triggered & Screen-contained)
         let stateNoScales = {};
         let stateGuiltIndices = {};
         let stateTeleportCounts = {};
 
-        function attachBehaviorEvents(stepNum, behavior, nextTarget) {
+        function attachBehaviorEvents(stepNum, behavior, nextTarget, activeYesLabel) {
             const noBtn = document.getElementById(`btn-no-prev-${stepNum}`);
             const noWrapper = document.getElementById(`btn-no-wrapper-prev-${stepNum}`);
             const yesBtn = document.getElementById(`btn-yes-prev-${stepNum}`);
@@ -1198,15 +1219,13 @@
             const newNoBtn = noBtn.cloneNode(true);
             noBtn.parentNode.replaceChild(newNoBtn, noBtn);
 
-            // 1. FLEEING
+            // 1. FLEEING (ကတ်ပြား မြင်ကွင်းအတွင်း၌သာ နေရာရွှေ့မည်၊ နှိပ်မှပြေးမည်)
             if (behavior === 'fleeing') {
                 const triggerFlee = (e) => {
-                    if (e && e.type === 'touchstart') e.preventDefault();
+                    if (e) e.preventDefault();
                     showPopupWarningPrev(`btn-no-wrapper-prev-${stepNum}`);
-                    moveButtonRandomly(newNoBtn);
+                    moveButtonInsideCard(newNoBtn);
                 };
-                newNoBtn.addEventListener('mouseenter', triggerFlee);
-                newNoBtn.addEventListener('touchstart', triggerFlee);
                 newNoBtn.onclick = triggerFlee;
             }
 
@@ -1238,11 +1257,10 @@
                         parent.insertBefore(yesBtn, parent.children[0]);
                     }
                 };
-                newNoBtn.addEventListener('mouseenter', swapFunc);
-                newNoBtn.onclick = () => { handleYesClick(nextTarget); };
+                newNoBtn.onclick = swapFunc;
             }
 
-            // 4. TELEPORT / REAPPEARING
+            // 4. TELEPORT / REAPPEARING (ကတ်ပြားပေါ်အတွင်း၌သာ နေရာပြောင်းမည်၊ နှိပ်မှပေါ်မည်)
             else if (behavior === 'teleport') {
                 stateTeleportCounts[stepNum] = 0;
                 const teleTexts = ["Are you sure?", "Think again!", "Really?", "Last chance!", "Nice try!"];
@@ -1251,19 +1269,21 @@
                     stateTeleportCounts[stepNum]++;
                     const text = teleTexts[stateTeleportCounts[stepNum] % teleTexts.length];
                     newNoBtn.innerText = text;
-                    moveButtonRandomly(newNoBtn);
+                    moveButtonInsideCard(newNoBtn);
                 };
             }
 
             // 5. FAKE LOADING / DISABLED
             else if (behavior === 'loading') {
+                const stepObj = appConfig.steps[stepNum - 1];
+                const defaultNoVal = (stepObj && stepObj.noText && stepObj.noText.trim() !== '') ? stepObj.noText : appConfig.noText;
                 newNoBtn.onclick = () => {
                     newNoBtn.disabled = true;
                     newNoBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Checking...`;
                     setTimeout(() => {
                         showPopupWarningPrev(`btn-no-wrapper-prev-${stepNum}`);
                         alert("Error 404: 'No' is not available. Server says you must click Yes!");
-                        newNoBtn.innerHTML = appConfig.noText;
+                        newNoBtn.innerHTML = defaultNoVal;
                         newNoBtn.disabled = false;
                     }, 1200);
                 };
@@ -1280,20 +1300,20 @@
             else if (behavior === 'guilttrip') {
                 stateGuiltIndices[stepNum] = 0;
                 const guiltTexts = ["Are you sure?", "Really?", "Think of us!", "Click Yes instead!"];
-                const guiltHover = () => {
+                const guiltClick = () => {
+                    showPopupWarningPrev(`btn-no-wrapper-prev-${stepNum}`);
                     let idx = stateGuiltIndices[stepNum];
                     if (idx < guiltTexts.length) {
                         newNoBtn.innerText = guiltTexts[idx];
                         stateGuiltIndices[stepNum]++;
                     } else {
-                        newNoBtn.innerText = appConfig.yesText;
+                        newNoBtn.innerText = activeYesLabel;
                         newNoBtn.style.background = appConfig.yesBg;
                         newNoBtn.style.color = appConfig.yesColor;
                         newNoBtn.onclick = () => handleYesClick(nextTarget);
                     }
                 };
-                newNoBtn.addEventListener('mouseenter', guiltHover);
-                newNoBtn.onclick = guiltHover;
+                newNoBtn.onclick = guiltClick;
             }
 
             // 8. POP-UP TRAP
@@ -1309,18 +1329,19 @@
             // 9. GRAVITY FALL
             else if (behavior === 'gravity') {
                 const gravDrop = () => {
+                    showPopupWarningPrev(`btn-no-wrapper-prev-${stepNum}`);
                     newNoBtn.classList.add('falling-btn');
                     setTimeout(() => {
                         newNoBtn.style.display = 'none';
                     }, 1200);
                 };
-                newNoBtn.addEventListener('mouseenter', gravDrop);
                 newNoBtn.onclick = gravDrop;
             }
 
             // 10. SPLIT / DISSECTING BUTTON
             else if (behavior === 'split') {
                 const triggerSplit = () => {
+                    showPopupWarningPrev(`btn-no-wrapper-prev-${stepNum}`);
                     const letters = ["Y", "E", "S"];
                     const rect = newNoBtn.getBoundingClientRect();
                     const targetRect = yesBtn.getBoundingClientRect();
@@ -1346,24 +1367,19 @@
                     newNoBtn.style.opacity = '0';
                     setTimeout(() => newNoBtn.style.display = 'none', 300);
                 };
-                newNoBtn.addEventListener('mouseenter', triggerSplit);
                 newNoBtn.onclick = triggerSplit;
             }
         }
 
-        function moveButtonRandomly(btnEl) {
-            if (!btnEl.classList.contains('escaped-btn')) {
-                btnEl.classList.add('escaped-btn');
+        // ကတ်ပြား မြင်ကွင်း (Screen / Card Container) အတွင်းမှာသာ ခလုတ်ရွှေ့ရန် ဖန်တီးထားသော လုပ်ဆောင်ချက်
+        function moveButtonInsideCard(btnEl) {
+            if (!btnEl.classList.contains('escaped-btn-card')) {
+                btnEl.classList.add('escaped-btn-card');
             }
-            const padding = 30;
-            const maxX = Math.max(padding, window.innerWidth - btnEl.offsetWidth - padding);
-            const maxY = Math.max(padding, window.innerHeight - btnEl.offsetHeight - padding);
-
-            const randomX = Math.min(Math.max(padding, Math.floor(Math.random() * maxX)), maxX);
-            const randomY = Math.min(Math.max(padding, Math.floor(Math.random() * maxY)), maxY);
-
-            btnEl.style.left = `${randomX}px`;
-            btnEl.style.top = `${randomY}px`;
+            // Screen ပြင်ပမရောက်စေရန် ကန့်သတ်ချက်ဖြင့် ရွှေ့ခြင်း
+            const randomX = Math.max(-80, Math.min(80, (Math.random() - 0.5) * 160));
+            const randomY = Math.max(-40, Math.min(40, (Math.random() - 0.5) * 80));
+            btnEl.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
 
         function setEnvelopeImg(url, element) {
@@ -1471,7 +1487,7 @@
             previewStep('letter');
         }
 
-        // GENERATE STANDALONE HTML CODE FOR EXPORT
+        // GENERATE STANDALONE HTML CODE FOR EXPORT (Scroll-free screen fix included)
         function generateCompleteHTML() {
             const warningsArrayJSON = JSON.stringify(appConfig.warnings);
             const stepsDataJSON = JSON.stringify(appConfig.steps);
@@ -1480,7 +1496,7 @@
 <html lang="my">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Interactive Love Surprise</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1490,20 +1506,25 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pyidaungsu', 'Padauk', sans-serif; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Scroll ဆွဲရခြင်းမှ ကာကွယ်ရန် */
+        }
         body {
             background: ${appConfig.bgGradient};
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; padding: 15px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px;
         }
         @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .card-container { width: 100%; max-width: 440px; min-height: 520px; display: flex; justify-content: center; align-items: center; position: relative; }
+        .card-container { width: 100%; max-width: 440px; height: 100%; max-height: 520px; display: flex; justify-content: center; align-items: center; position: relative; }
         
         .interactive-card {
-            padding: 35px 25px; border-radius: 30px;
+            padding: 30px 20px; border-radius: 30px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.6);
             text-align: center; width: 100%; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 255, 255, 0.8); transition: all 0.4s ease; position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.8); transition: all 0.4s ease; position: relative; overflow: hidden;
         }
 
         .env-glass { background: rgba(255, 255, 255, 0.75); color: #be123c; }
@@ -1512,22 +1533,22 @@
         .env-classic-gold { background: linear-gradient(135deg, rgba(254, 243, 199, 0.92), rgba(253, 230, 138, 0.95)); color: #78350f; border-color: rgba(245, 158, 11, 0.5); }
         .env-dark-velvet { background: linear-gradient(135deg, rgba(30, 27, 75, 0.92), rgba(15, 23, 42, 0.95)); color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); }
 
-        .step { display: none; flex-direction: column; align-items: center; gap: 22px; animation: fadeIn 0.4s ease-in-out forwards; }
+        .step { display: none; flex-direction: column; align-items: center; gap: 18px; animation: fadeIn 0.4s ease-in-out forwards; width: 100%; }
         .step.active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        img.gif-box { width: 180px; height: 180px; object-fit: cover; border-radius: 22px; box-shadow: 0 10px 25px rgba(220,38,38,0.2); border: 4px solid rgba(255,255,255,0.9); }
+        img.gif-box { width: 160px; height: 160px; object-fit: cover; border-radius: 22px; box-shadow: 0 10px 25px rgba(220,38,38,0.2); border: 4px solid rgba(255,255,255,0.9); }
         
-        .btn-group { display: flex; justify-content: center; align-items: center; gap: 20px; width: 100%; min-height: 110px; position: relative; padding: 10px; }
+        .btn-group { display: flex; justify-content: center; align-items: center; gap: 16px; width: 100%; min-height: 90px; position: relative; padding: 5px; }
         
         .btn-custom-yes {
-            padding: 14px 34px; font-weight: 800; border-radius: 50px; cursor: pointer;
+            padding: 12px 28px; font-weight: 800; border-radius: 50px; cursor: pointer;
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
             box-shadow: 0 8px 25px rgba(255, 65, 108, 0.4); border: none; display: inline-flex; justify-content: center; align-items: center; z-index: 5;
         }
         .btn-custom-yes:hover { transform: translateY(-3px) scale(1.06); }
 
         .btn-custom-no {
-            padding: 14px 34px; font-weight: 800; border-radius: 50px; cursor: pointer;
+            padding: 12px 28px; font-weight: 800; border-radius: 50px; cursor: pointer;
             transition: transform 0.25s, box-shadow 0.25s, opacity 0.3s;
             box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4); border: none; display: inline-flex; justify-content: center; align-items: center; z-index: 5;
         }
@@ -1536,39 +1557,39 @@
         
         .popup-warning {
             position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: rgba(255, 228, 230, 0.95);
-            color: #e11d48; border: 2px solid #f43f5e; padding: 8px 14px; border-radius: 12px; font-size: 0.85rem;
+            color: #e11d48; border: 2px solid #f43f5e; padding: 6px 12px; border-radius: 12px; font-size: 0.82rem;
             font-weight: 700; white-space: nowrap; box-shadow: 0 6px 18px rgba(225, 29, 72, 0.25); z-index: 10000;
             pointer-events: none; backdrop-filter: blur(4px); animation: popupBounce 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .popup-warning::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #f43f5e transparent transparent transparent; }
         @keyframes popupBounce { 0% { opacity: 0; transform: translate(-50%, 10px) scale(0.8); } 100% { opacity: 1; transform: translate(-50%, 0) scale(1); } }
         
-        .escaped-btn { position: fixed !important; z-index: 9999; transition: top 0.2s ease-out, left 0.2s ease-out; }
+        .escaped-btn-card { position: relative !important; transition: transform 0.2s ease-in-out; }
 
-        @keyframes orbitAnimation { 0% { transform: rotate(0deg) translateX(70px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); } }
+        @keyframes orbitAnimation { 0% { transform: rotate(0deg) translateX(45px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(45px) rotate(-360deg); } }
         .orbiting-btn { animation: orbitAnimation 2.2s linear infinite; }
 
-        @keyframes gravityFallAnim { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(600px) rotate(180deg); opacity: 0; } }
+        @keyframes gravityFallAnim { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(220px) rotate(180deg); opacity: 0; } }
         .falling-btn { animation: gravityFallAnim 1.2s ease-in forwards !important; }
 
         .split-letter-particle { position: absolute; font-weight: 900; color: #ec4899; font-size: 1.5rem; pointer-events: none; z-index: 10000; transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         .falling-envelope-container {
-            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; padding: 20px; user-select: none;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; padding: 15px; user-select: none;
             animation: fallAndSway 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatGentle 2.6s ease-in-out infinite 3.2s;
         }
-        @keyframes fallAndSway { 0% { transform: translateY(-280px) rotate(-18deg); opacity: 0; } 30% { transform: translateY(-120px) rotate(14deg); opacity: 1; } 60% { transform: translateY(20px) rotate(-10deg); } 85% { transform: translateY(-8px) rotate(6deg); } 100% { transform: translateY(0px) rotate(0deg); opacity: 1; } }
-        @keyframes floatGentle { 0%, 100% { transform: translateY(0px) rotate(-4deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
-        .no-frame-gif { width: 210px; height: auto; background: transparent !important; filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.22)); transition: transform 0.3s ease; }
+        @keyframes fallAndSway { 0% { transform: translateY(-240px) rotate(-18deg); opacity: 0; } 30% { transform: translateY(-100px) rotate(14deg); opacity: 1; } 60% { transform: translateY(15px) rotate(-10deg); } 85% { transform: translateY(-6px) rotate(6deg); } 100% { transform: translateY(0px) rotate(0deg); opacity: 1; } }
+        @keyframes floatGentle { 0%, 100% { transform: translateY(0px) rotate(-4deg); } 50% { transform: translateY(-12px) rotate(4deg); } }
+        .no-frame-gif { width: 190px; height: auto; background: transparent !important; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2)); transition: transform 0.3s ease; }
         .falling-envelope-container:hover .no-frame-gif { transform: scale(1.08); }
-        .tap-hint-badge { margin-top: 18px; background: rgba(255, 255, 255, 0.88); color: #be123c; font-weight: 700; font-size: 1.05rem; padding: 8px 20px; border-radius: 30px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); border: 1.5px solid rgba(255, 255, 255, 0.9); animation: pulseHint 1.6s infinite ease-in-out; }
-        @keyframes pulseHint { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.06); opacity: 1; } }
+        .tap-hint-badge { margin-top: 14px; background: rgba(255, 255, 255, 0.92); color: #be123c; font-weight: 700; font-size: 0.95rem; padding: 7px 18px; border-radius: 30px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); border: 1.5px solid rgba(255, 255, 255, 0.9); animation: pulseHint 1.6s infinite ease-in-out; }
+        @keyframes pulseHint { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
         
-        .paper-letter-wrapper { position: relative; width: 100%; max-width: 380px; margin: 0 auto; padding: 10px; display: flex; justify-content: center; align-items: center; z-index: 10; }
+        .paper-letter-wrapper { position: relative; width: 100%; max-width: 380px; margin: 0 auto; padding: 5px; display: flex; justify-content: center; align-items: center; z-index: 10; }
         .paper-letter-pop { animation: popInLetter 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         @keyframes popInLetter { 0% { opacity: 0; transform: scale(0.3) rotate(-12deg); } 70% { transform: scale(1.04) rotate(-2deg); } 100% { opacity: 1; transform: scale(1) rotate(-2deg); } }
         
-        .paper-sheet { position: relative; width: 100%; padding: 32px 22px 28px 22px; border-radius: 16px; box-shadow: -8px 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.8); }
+        .paper-sheet { position: relative; width: 100%; padding: 26px 18px 22px 18px; border-radius: 16px; box-shadow: -8px 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.8); }
         
         .paper-classic { background-color: rgba(255, 253, 248, 0.96); color: #2b2b2b; }
         .paper-classic .letter-title { color: #b91c1c; border-bottom: 2px dashed #fca5a5; }
@@ -1590,10 +1611,10 @@
         .paper-dark .letter-title { color: #fb7185; border-bottom: 2px dashed #f43f5e; }
         .paper-dark .letter-signature { color: #fda4af; }
 
-        .paperclip { position: absolute; top: 12px; right: 28px; width: 18px; height: 45px; border: 3px solid #4a4a4a; border-radius: 12px; z-index: 6; transform: rotate(8deg); }
-        .letter-content { font-family: 'Pyidaungsu', sans-serif; line-height: 1.8; font-size: 0.95rem; text-align: left; }
-        .letter-title { text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; }
-        .letter-signature { text-align: right; margin-top: 18px; font-weight: 700; font-size: 1rem; }
+        .paperclip { position: absolute; top: 10px; right: 24px; width: 16px; height: 40px; border: 3px solid #4a4a4a; border-radius: 12px; z-index: 6; transform: rotate(8deg); }
+        .letter-content { font-family: 'Pyidaungsu', sans-serif; line-height: 1.6; font-size: 0.9rem; text-align: left; }
+        .letter-title { text-align: center; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; }
+        .letter-signature { text-align: right; margin-top: 14px; font-weight: 700; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -1606,12 +1627,12 @@
         const warnings = ${warningsArrayJSON};
         const steps = ${stepsDataJSON};
         
-        const yesText = "${appConfig.yesText}";
+        const defaultYesText = "${appConfig.yesText}";
         const yesBg = "${appConfig.yesBg}";
         const yesColor = "${appConfig.yesColor}";
         const yesFontSize = "${appConfig.yesFontSize}";
 
-        const noText = "${appConfig.noText}";
+        const defaultNoText = "${appConfig.noText}";
         const noBg = "${appConfig.noBg}";
         const noColor = "${appConfig.noColor}";
         const noFontSize = "${appConfig.noFontSize}";
@@ -1671,19 +1692,22 @@
                 const yesStyle = \`background: \${yesBg}; color: \${yesColor}; font-size: \${yesFontSize}px;\`;
                 const noStyle = \`background: \${noBg}; color: \${noColor}; font-size: \${noFontSize}px;\`;
 
+                const stepYesLabel = (step.yesText && step.yesText.trim() !== '') ? step.yesText : defaultYesText;
+                const stepNoLabel = (step.noText && step.noText.trim() !== '') ? step.noText : defaultNoText;
+
                 card.innerHTML = \`
                     <img class="gif-box" src="\${step.gif}" alt="Gif \${stepNum}">
                     <h2 class="font-bold leading-relaxed" style="font-size: \${questionFontSize}px;">\${step.text}</h2>
                     <div class="btn-group">
-                        <button class="btn-custom-yes" style="\${yesStyle}" id="btn-yes-\${stepNum}" onclick="nextStep('\${nextTarget}')">\${yesText}</button>
+                        <button class="btn-custom-yes" style="\${yesStyle}" id="btn-yes-\${stepNum}" onclick="nextStep('\${nextTarget}')">\${stepYesLabel}</button>
                         <div class="btn-no-wrapper" id="btn-no-wrapper-\${stepNum}">
-                            <button class="btn-custom-no \${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="\${noStyle}" id="btn-no-\${stepNum}">\${noText}</button>
+                            <button class="btn-custom-no \${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="\${noStyle}" id="btn-no-\${stepNum}">\${stepNoLabel}</button>
                         </div>
                     </div>
                 \`;
                 container.appendChild(card);
 
-                setTimeout(() => attachBehaviorEventsApp(stepNum, step.behavior, nextTarget), 50);
+                setTimeout(() => attachBehaviorEventsApp(stepNum, step.behavior, nextTarget, stepYesLabel), 50);
             });
 
             // Falling Bouquet Step
@@ -1725,19 +1749,17 @@
         let stateGuiltIndicesApp = {};
         let stateTeleportCountsApp = {};
 
-        function attachBehaviorEventsApp(stepNum, behavior, nextTarget) {
+        function attachBehaviorEventsApp(stepNum, behavior, nextTarget, stepYesLabel) {
             const noBtn = document.getElementById(\`btn-no-\${stepNum}\`);
             const yesBtn = document.getElementById(\`btn-yes-\${stepNum}\`);
             if (!noBtn) return;
 
             if (behavior === 'fleeing') {
                 const triggerFlee = (e) => {
-                    if (e && e.type === 'touchstart') e.preventDefault();
+                    if (e) e.preventDefault();
                     showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
-                    moveButtonRandomlyApp(noBtn);
+                    moveButtonInsideCardApp(noBtn);
                 };
-                noBtn.addEventListener('mouseenter', triggerFlee);
-                noBtn.addEventListener('touchstart', triggerFlee);
                 noBtn.onclick = triggerFlee;
             } else if (behavior === 'shrinking') {
                 stateNoScalesApp[stepNum] = { yesScale: 1, noScale: 1 };
@@ -1759,8 +1781,7 @@
                     if (parent.children[0] === yesBtn) parent.appendChild(yesBtn);
                     else parent.insertBefore(yesBtn, parent.children[0]);
                 };
-                noBtn.addEventListener('mouseenter', swapFunc);
-                noBtn.onclick = () => { nextStep(nextTarget); };
+                noBtn.onclick = swapFunc;
             } else if (behavior === 'teleport') {
                 stateTeleportCountsApp[stepNum] = 0;
                 const teleTexts = ["Are you sure?", "Think again!", "Really?", "Last chance!", "Nice try!"];
@@ -1768,16 +1789,18 @@
                     showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
                     stateTeleportCountsApp[stepNum]++;
                     noBtn.innerText = teleTexts[stateTeleportCountsApp[stepNum] % teleTexts.length];
-                    moveButtonRandomlyApp(noBtn);
+                    moveButtonInsideCardApp(noBtn);
                 };
             } else if (behavior === 'loading') {
+                const stepObj = steps[stepNum - 1];
+                const activeNoVal = (stepObj && stepObj.noText && stepObj.noText.trim() !== '') ? stepObj.noText : defaultNoText;
                 noBtn.onclick = () => {
                     noBtn.disabled = true;
                     noBtn.innerHTML = \`<i class="fa-solid fa-spinner fa-spin mr-1"></i> Checking...\`;
                     setTimeout(() => {
                         showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
                         alert("Error 404: 'No' is not available. Server says you must click Yes!");
-                        noBtn.innerHTML = noText;
+                        noBtn.innerHTML = activeNoVal;
                         noBtn.disabled = false;
                     }, 1200);
                 };
@@ -1786,20 +1809,20 @@
             } else if (behavior === 'guilttrip') {
                 stateGuiltIndicesApp[stepNum] = 0;
                 const guiltTexts = ["Are you sure?", "Really?", "Think of us!", "Click Yes instead!"];
-                const guiltHover = () => {
+                const guiltClick = () => {
+                    showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
                     let idx = stateGuiltIndicesApp[stepNum];
                     if (idx < guiltTexts.length) {
                         noBtn.innerText = guiltTexts[idx];
                         stateGuiltIndicesApp[stepNum]++;
                     } else {
-                        noBtn.innerText = yesText;
+                        noBtn.innerText = stepYesLabel;
                         noBtn.style.background = yesBg;
                         noBtn.style.color = yesColor;
                         noBtn.onclick = () => nextStep(nextTarget);
                     }
                 };
-                noBtn.addEventListener('mouseenter', guiltHover);
-                noBtn.onclick = guiltHover;
+                noBtn.onclick = guiltClick;
             } else if (behavior === 'popuptrap') {
                 noBtn.onclick = () => {
                     alert("Alert 1: Really?");
@@ -1809,13 +1832,14 @@
                 };
             } else if (behavior === 'gravity') {
                 const gravDrop = () => {
+                    showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
                     noBtn.classList.add('falling-btn');
                     setTimeout(() => { noBtn.style.display = 'none'; }, 1200);
                 };
-                noBtn.addEventListener('mouseenter', gravDrop);
                 noBtn.onclick = gravDrop;
             } else if (behavior === 'split') {
                 const triggerSplit = () => {
+                    showPopupWarning(\`btn-no-wrapper-\${stepNum}\`);
                     const letters = ["Y", "E", "S"];
                     const rect = noBtn.getBoundingClientRect();
                     const targetRect = yesBtn.getBoundingClientRect();
@@ -1841,24 +1865,17 @@
                     noBtn.style.opacity = '0';
                     setTimeout(() => noBtn.style.display = 'none', 300);
                 };
-                noBtn.addEventListener('mouseenter', triggerSplit);
                 noBtn.onclick = triggerSplit;
             }
         }
 
-        function moveButtonRandomlyApp(btnEl) {
-            if (!btnEl.classList.contains('escaped-btn')) {
-                btnEl.classList.add('escaped-btn');
+        function moveButtonInsideCardApp(btnEl) {
+            if (!btnEl.classList.contains('escaped-btn-card')) {
+                btnEl.classList.add('escaped-btn-card');
             }
-            const padding = 30;
-            const maxX = Math.max(padding, window.innerWidth - btnEl.offsetWidth - padding);
-            const maxY = Math.max(padding, window.innerHeight - btnEl.offsetHeight - padding);
-
-            const randomX = Math.min(Math.max(padding, Math.floor(Math.random() * maxX)), maxX);
-            const randomY = Math.min(Math.max(padding, Math.floor(Math.random() * maxY)), maxY);
-
-            btnEl.style.left = \`\${randomX}px\`;
-            btnEl.style.top = \`\${randomY}px\`;
+            const randomX = Math.max(-80, Math.min(80, (Math.random() - 0.5) * 160));
+            const randomY = Math.max(-40, Math.min(40, (Math.random() - 0.5) * 80));
+            btnEl.style.transform = \`translate(\${randomX}px, \${randomY}px)\`;
         }
 
         function nextStep(stepTarget) {
@@ -1930,7 +1947,7 @@
             const deployBtn = document.getElementById('btn-deploy-gh');
 
             if (!token) {
-                alert('GitHub Personal Access Token ထည့်သွင်းပေးပါ။');
+                alert('ကျေးဇူးပြု၍ epostcard သို့မဟုတ် mm သို့မဟုတ် epostcardmm ဟု စာရိုက်ထည့်ပေးပါ');
                 return;
             }
             if (!repoName) {
