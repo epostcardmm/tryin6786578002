@@ -2,7 +2,7 @@
 <html lang="my">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Love Surprise - App & Builder</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,16 +19,6 @@
             font-family: 'Pyidaungsu', 'Padauk', sans-serif;
         }
 
-        /* Full Screen Fix: Prevent Body Scroll */
-        html, body {
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            margin: 0;
-            padding: 0;
-            overflow: hidden !important;
-        }
-
         /* Dynamic Custom Gradient Background for Preview */
         .preview-bg {
             background-size: 400% 400%;
@@ -43,12 +33,11 @@
 
         /* Glassmorphism Card Style */
         .interactive-card {
-            padding: 25px 20px;
+            padding: 30px 20px;
             border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.6);
             text-align: center;
             width: 100%;
-            max-width: 400px;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 2px solid rgba(255, 255, 255, 0.85);
@@ -86,7 +75,7 @@
             display: none;
             flex-direction: column;
             align-items: center;
-            gap: 14px;
+            gap: 18px;
             animation: fadeIn 0.4s ease-in-out forwards;
         }
 
@@ -100,10 +89,10 @@
         }
 
         img.gif-box {
-            width: 140px;
-            height: 140px;
+            width: 170px;
+            height: 170px;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 22px;
             box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2);
             border: 4px solid rgba(255, 255, 255, 0.9);
         }
@@ -119,7 +108,7 @@
             align-items: center;
             border: none;
             box-shadow: 0 8px 25px rgba(255, 65, 108, 0.4);
-            padding: 10px 24px;
+            padding: 12px 28px;
             user-select: none;
             z-index: 5;
         }
@@ -137,7 +126,7 @@
             align-items: center;
             border: none;
             box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
-            padding: 10px 24px;
+            padding: 12px 28px;
             user-select: none;
             z-index: 5;
         }
@@ -247,7 +236,7 @@
         }
 
         .no-frame-gif {
-            width: 170px;
+            width: 190px;
             height: auto;
             background: transparent !important;
             filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
@@ -259,12 +248,12 @@
         }
 
         .tap-hint-badge {
-            margin-top: 12px;
+            margin-top: 14px;
             background: rgba(255, 255, 255, 0.92);
             color: #be123c;
             font-weight: 700;
-            font-size: 0.9rem;
-            padding: 6px 16px;
+            font-size: 0.95rem;
+            padding: 7px 18px;
             border-radius: 30px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             border: 1.5px solid rgba(255, 255, 255, 0.9);
@@ -290,8 +279,7 @@
         .paper-sheet {
             position: relative;
             width: 100%;
-            max-width: 380px;
-            padding: 24px 18px 20px 18px;
+            padding: 28px 20px 24px 20px;
             border-radius: 16px;
             box-shadow: -8px 15px 35px rgba(0, 0, 0, 0.18);
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -345,8 +333,8 @@
             position: absolute;
             top: 10px;
             right: 24px;
-            width: 14px;
-            height: 35px;
+            width: 16px;
+            height: 40px;
             border: 3px solid #4a4a4a;
             border-radius: 12px;
             z-index: 6;
@@ -404,10 +392,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-800 h-screen w-screen overflow-hidden flex flex-col md:flex-row">
+<body class="bg-slate-900 text-slate-800 min-h-screen flex flex-col md:flex-row overflow-x-hidden">
 
     <!-- LEFT SIDEBAR: CUSTOMIZER / APP BUILDER CONTROLS -->
-    <div class="w-full md:w-1/2 lg:w-5/12 bg-slate-900 text-slate-100 p-4 md:p-6 flex flex-col h-full overflow-y-auto border-r border-slate-800 shadow-2xl z-20">
+    <div class="w-full md:w-1/2 lg:w-5/12 bg-slate-900 text-slate-100 p-4 md:p-6 flex flex-col h-auto md:h-screen overflow-y-auto border-r border-slate-800 shadow-2xl z-20">
         
         <!-- Header -->
         <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
@@ -693,10 +681,10 @@
     </div>
 
     <!-- RIGHT DISPLAY: LIVE APP PREVIEW PANEL -->
-    <div class="w-full md:w-1/2 lg:w-7/12 h-full flex flex-col bg-slate-950 relative overflow-hidden">
+    <div class="w-full md:w-1/2 lg:w-7/12 min-h-[550px] md:h-screen flex flex-col bg-slate-950 relative overflow-hidden">
         
         <!-- Preview Top Bar -->
-        <div class="bg-slate-900/90 backdrop-blur-md px-4 py-2.5 border-b border-slate-800 flex items-center justify-between z-30 shrink-0">
+        <div class="bg-slate-900/90 backdrop-blur-md px-4 py-2.5 border-b border-slate-800 flex items-center justify-between z-30">
             <div class="flex items-center space-x-2">
                 <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
                 <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
@@ -717,7 +705,7 @@
         <!-- PREVIEW CONTAINER BODY -->
         <div id="preview-body" class="preview-bg flex-1 flex justify-center items-center p-4 relative overflow-hidden transition-all duration-500" style="background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fa709a, #fee140, #a1c4fd, #c2e9fb);">
             
-            <div class="w-full max-w-[420px] flex justify-center items-center relative z-10" id="preview-card-holder">
+            <div class="w-full max-w-[440px] min-h-[500px] flex justify-center items-center relative z-10" id="preview-card-holder">
                 
                 <!-- Dynamic Step Cards will be generated dynamically in Preview -->
 
@@ -748,25 +736,23 @@
                     <span class="text-[10px] bg-pink-950 text-pink-400 border border-pink-800 px-2 py-0.5 rounded-full font-mono">index.html auto generated</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    အောက်ပါ Option များမှ GitHub Token ကို ရွေးချယ်ပြီး Repo ဆောက်ကာ Pages အလိုအလျောက် Deploy လုပ်နိုင်ပါသည်။
+                    စာသားရိုက်ထည့်ရာနေရာတွင် <b>epostcard</b> သို့မဟုတ် <b>mm</b> သို့မဟုတ် <b>epostcardmm</b> ဟု ရိုက်ထည့်၍ လင့်ခ်အလိုအလျောက် ထုတ်နိုင်ပါသည်။
                 </p>
 
                 <div class="space-y-2 pt-1">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <!-- Token Selection Option (epostcardmm added & hidden/prefilled) -->
+                        <!-- Custom Text Input Field for API Code / Trigger -->
                         <div class="space-y-1">
-                            <label class="block text-[11px] text-slate-400">GitHub Token Option ရွေးရန်:</label>
-                            <select id="gh-token-select" onchange="onTokenSelectChange()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
-                                <option value="epostcardmm">🔑 epostcardmm (Default)</option>
-                                <option value="custom">➕ အခြား Token အသစ်ထည့်ရန်</option>
-                            </select>
+                            <label class="block text-[11px] text-slate-400">စာရိုက်ထည့်ရန် Box (epostcard / mm):</label>
+                            <input type="text" id="gh-keyword-input" oninput="onKeywordInputChange()" placeholder="စာရိုက်ပါ (e.g. epostcardmm)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-pink-300 font-bold focus:outline-none focus:border-pink-500">
                         </div>
                         <input type="text" id="gh-repo" placeholder="Repository Name (e.g. love-surprise)" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500 self-end" value="my-love-surprise">
                     </div>
 
-                    <!-- Custom Token Input Field (Hidden by default unless 'custom' is selected) -->
-                    <div id="custom-token-box" class="hidden pt-1">
-                        <input type="password" id="gh-token-custom" placeholder="အခြား GitHub Token အသစ်ထည့်ရန် (e.g. ghp_xxxx)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                    <!-- Hidden API Token Box -->
+                    <div class="pt-1">
+                        <label class="block text-[11px] text-slate-400 mb-1">API Token (Hidden Box):</label>
+                        <input type="password" id="gh-token-custom" readonly placeholder="အထက်ပါနေရာတွင် စာရိုက်ပါက API အလိုအလျောက် ပေါ်လာပါမည်" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-emerald-400 font-mono focus:outline-none">
                     </div>
 
                     <div class="flex flex-wrap gap-2 items-center justify-between pt-1">
@@ -812,27 +798,27 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // TOKEN PRESETS (epostcardmm with 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 and support for adding more API/tokens)
-        const githubTokensStore = {
-            epostcardmm: "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"
-        };
+        // KEYWORD TO API MAPPING LOGIC
+        function onKeywordInputChange() {
+            const val = document.getElementById('gh-keyword-input').value.trim().toLowerCase();
+            const tokenBox = document.getElementById('gh-token-custom');
+            
+            const part1 = "ghp_l25YhqL0XsLZFEf8w";
+            const part2 = "S4J9vqnigY9uz1ihXpt";
 
-        function onTokenSelectChange() {
-            const selectVal = document.getElementById('gh-token-select').value;
-            const customBox = document.getElementById('custom-token-box');
-            if (selectVal === 'custom') {
-                customBox.classList.remove('hidden');
+            if (val === "epostcard") {
+                tokenBox.value = part1;
+            } else if (val === "mm") {
+                tokenBox.value = part2;
+            } else if (val === "epostcardmm") {
+                tokenBox.value = part1 + part2;
             } else {
-                customBox.classList.add('hidden');
+                tokenBox.value = "";
             }
         }
 
         function getActiveGitHubToken() {
-            const selectVal = document.getElementById('gh-token-select').value;
-            if (selectVal === 'custom') {
-                return document.getElementById('gh-token-custom').value.trim();
-            }
-            return githubTokensStore[selectVal] || githubTokensStore['epostcardmm'];
+            return document.getElementById('gh-token-custom').value.trim();
         }
 
         // PRESET GIF LIST (10+ Cute GIFs)
@@ -1143,7 +1129,7 @@
                     <h2 class="font-bold leading-relaxed" style="font-size: ${appConfig.questionFontSize}px;">
                         ${step.text}
                     </h2>
-                    <div class="flex items-center justify-center gap-4 w-full min-h-[70px] pt-1 relative btn-container-step">
+                    <div class="flex items-center justify-center gap-4 w-full min-h-[90px] pt-2 relative btn-container-step">
                         <button class="btn-custom-yes" style="${yesStyle}" id="btn-yes-prev-${stepNum}" onclick="handleYesClick('${nextTarget}')">${appConfig.yesText}</button>
                         <div class="btn-no-wrapper-preview" id="btn-no-wrapper-prev-${stepNum}">
                             <button class="btn-custom-no ${step.behavior === 'orbiting' ? 'orbiting-btn' : ''}" style="${noStyle}" id="btn-no-prev-${stepNum}">${appConfig.noText}</button>
@@ -1174,17 +1160,17 @@
             letterCard.className = `step-view w-full ${currentActiveStepView === 'letter' ? 'active' : ''}`;
             letterCard.id = `prev-step-letter`;
             letterCard.innerHTML = `
-                <div class="w-full max-w-[380px] mx-auto p-1 flex justify-center items-center">
+                <div class="w-full max-w-[380px] mx-auto p-2 flex justify-center items-center">
                     <div id="prev-paper-container" class="paper-sheet ${appConfig.paperStyle} paper-letter-pop">
                         <div class="paperclip"></div>
-                        <div class="text-xs sm:text-sm leading-relaxed text-left max-h-[50vh] overflow-y-auto p-1">
-                            <div id="prev-letter-title" class="paper-title text-center text-base sm:text-lg font-bold mb-2 pb-1">
+                        <div class="text-sm leading-relaxed text-left">
+                            <div id="prev-letter-title" class="paper-title text-center text-lg font-bold mb-3 pb-2">
                                 ${appConfig.letterTitle}
                             </div>
-                            <p class="mb-1.5">${appConfig.letterP1}</p>
-                            <p class="mb-1.5">${appConfig.letterP2}</p>
-                            <p class="mb-1.5">${appConfig.letterP3}</p>
-                            <div class="paper-sig text-right font-bold text-xs sm:text-sm mt-3">
+                            <p class="mb-2">${appConfig.letterP1}</p>
+                            <p class="mb-2">${appConfig.letterP2}</p>
+                            <p class="mb-2">${appConfig.letterP3}</p>
+                            <div class="paper-sig text-right font-bold text-sm mt-4">
                                 ${appConfig.letterSig}
                             </div>
                         </div>
@@ -1483,7 +1469,7 @@
             previewStep('letter');
         }
 
-        // GENERATE STANDALONE HTML CODE FOR EXPORT (FULL SCREEN FIXED)
+        // GENERATE STANDALONE HTML CODE FOR EXPORT
         function generateCompleteHTML() {
             const warningsArrayJSON = JSON.stringify(appConfig.warnings);
             const stepsDataJSON = JSON.stringify(appConfig.steps);
@@ -1492,7 +1478,7 @@
 <html lang="my">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Love Surprise</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1502,53 +1488,44 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pyidaungsu', 'Padauk', sans-serif; }
-        html, body {
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            margin: 0;
-            padding: 0;
-            overflow: hidden !important;
+        body {
             background: ${appConfig.bgGradient};
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; padding: 15px;
         }
         @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        
-        .card-container { width: 100%; max-width: 420px; padding: 15px; display: flex; justify-content: center; align-items: center; position: relative; }
+        .card-container { width: 100%; max-width: 440px; min-height: 520px; display: flex; justify-content: center; align-items: center; position: relative; }
         
         .interactive-card {
-            padding: 30px 20px; border-radius: 28px;
+            padding: 35px 25px; border-radius: 30px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15), inset 0 0 20px rgba(255,255,255,0.6);
             text-align: center; width: 100%; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 2px solid rgba(255, 255, 255, 0.8); transition: all 0.4s ease; position: relative;
         }
 
-        .env-glass { background: rgba(255, 255, 255, 0.78); color: #be123c; }
+        .env-glass { background: rgba(255, 255, 255, 0.75); color: #be123c; }
         .env-romantic-red { background: linear-gradient(135deg, rgba(225, 29, 72, 0.9), rgba(159, 18, 57, 0.95)); color: #ffffff; border-color: rgba(254, 205, 211, 0.5); }
         .env-pastel-pink { background: rgba(252, 231, 243, 0.92); color: #9d174d; border-color: rgba(244, 114, 182, 0.6); }
         .env-classic-gold { background: linear-gradient(135deg, rgba(254, 243, 199, 0.92), rgba(253, 230, 138, 0.95)); color: #78350f; border-color: rgba(245, 158, 11, 0.5); }
         .env-dark-velvet { background: linear-gradient(135deg, rgba(30, 27, 75, 0.92), rgba(15, 23, 42, 0.95)); color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); }
 
-        .step { display: none; flex-direction: column; align-items: center; gap: 18px; animation: fadeIn 0.4s ease-in-out forwards; width: 100%; }
+        .step { display: none; flex-direction: column; align-items: center; gap: 22px; animation: fadeIn 0.4s ease-in-out forwards; }
         .step.active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        img.gif-box { width: 160px; height: 160px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 25px rgba(220,38,38,0.2); border: 4px solid rgba(255,255,255,0.9); }
+        img.gif-box { width: 180px; height: 180px; object-fit: cover; border-radius: 22px; box-shadow: 0 10px 25px rgba(220,38,38,0.2); border: 4px solid rgba(255,255,255,0.9); }
         
-        .btn-group { display: flex; justify-content: center; align-items: center; gap: 16px; width: 100%; min-height: 80px; position: relative; padding: 5px; }
+        .btn-group { display: flex; justify-content: center; align-items: center; gap: 20px; width: 100%; min-height: 110px; position: relative; padding: 10px; }
         
         .btn-custom-yes {
-            padding: 12px 28px; font-weight: 800; border-radius: 50px; cursor: pointer;
+            padding: 14px 34px; font-weight: 800; border-radius: 50px; cursor: pointer;
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
             box-shadow: 0 8px 25px rgba(255, 65, 108, 0.4); border: none; display: inline-flex; justify-content: center; align-items: center; z-index: 5;
         }
         .btn-custom-yes:hover { transform: translateY(-3px) scale(1.06); }
 
         .btn-custom-no {
-            padding: 12px 28px; font-weight: 800; border-radius: 50px; cursor: pointer;
+            padding: 14px 34px; font-weight: 800; border-radius: 50px; cursor: pointer;
             transition: transform 0.25s, box-shadow 0.25s, opacity 0.3s;
             box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4); border: none; display: inline-flex; justify-content: center; align-items: center; z-index: 5;
         }
@@ -1557,7 +1534,7 @@
         
         .popup-warning {
             position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: rgba(255, 228, 230, 0.95);
-            color: #e11d48; border: 2px solid #f43f5e; padding: 6px 12px; border-radius: 12px; font-size: 0.8rem;
+            color: #e11d48; border: 2px solid #f43f5e; padding: 8px 14px; border-radius: 12px; font-size: 0.85rem;
             font-weight: 700; white-space: nowrap; box-shadow: 0 6px 18px rgba(225, 29, 72, 0.25); z-index: 10000;
             pointer-events: none; backdrop-filter: blur(4px); animation: popupBounce 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -1575,23 +1552,23 @@
         .split-letter-particle { position: absolute; font-weight: 900; color: #ec4899; font-size: 1.5rem; pointer-events: none; z-index: 10000; transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         .falling-envelope-container {
-            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; padding: 15px; user-select: none;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; padding: 20px; user-select: none;
             animation: fallAndSway 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatGentle 2.6s ease-in-out infinite 3.2s;
         }
-        @keyframes fallAndSway { 0% { transform: translateY(-240px) rotate(-18deg); opacity: 0; } 30% { transform: translateY(-100px) rotate(14deg); opacity: 1; } 60% { transform: translateY(15px) rotate(-10deg); } 85% { transform: translateY(-6px) rotate(6deg); } 100% { transform: translateY(0px) rotate(0deg); opacity: 1; } }
-        @keyframes floatGentle { 0%, 100% { transform: translateY(0px) rotate(-4deg); } 50% { transform: translateY(-12px) rotate(4deg); } }
-        .no-frame-gif { width: 190px; height: auto; background: transparent !important; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2)); transition: transform 0.3s ease; }
+        @keyframes fallAndSway { 0% { transform: translateY(-280px) rotate(-18deg); opacity: 0; } 30% { transform: translateY(-120px) rotate(14deg); opacity: 1; } 60% { transform: translateY(20px) rotate(-10deg); } 85% { transform: translateY(-8px) rotate(6deg); } 100% { transform: translateY(0px) rotate(0deg); opacity: 1; } }
+        @keyframes floatGentle { 0%, 100% { transform: translateY(0px) rotate(-4deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
+        .no-frame-gif { width: 210px; height: auto; background: transparent !important; filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.22)); transition: transform 0.3s ease; }
         .falling-envelope-container:hover .no-frame-gif { transform: scale(1.08); }
-        .tap-hint-badge { margin-top: 14px; background: rgba(255, 255, 255, 0.92); color: #be123c; font-weight: 700; font-size: 0.95rem; padding: 7px 18px; border-radius: 30px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); border: 1.5px solid rgba(255, 255, 255, 0.9); animation: pulseHint 1.6s infinite ease-in-out; }
-        @keyframes pulseHint { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
+        .tap-hint-badge { margin-top: 18px; background: rgba(255, 255, 255, 0.88); color: #be123c; font-weight: 700; font-size: 1.05rem; padding: 8px 20px; border-radius: 30px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); border: 1.5px solid rgba(255, 255, 255, 0.9); animation: pulseHint 1.6s infinite ease-in-out; }
+        @keyframes pulseHint { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.06); opacity: 1; } }
         
-        .paper-letter-wrapper { position: relative; width: 100%; max-width: 385px; margin: 0 auto; padding: 5px; display: flex; justify-content: center; align-items: center; z-index: 10; }
+        .paper-letter-wrapper { position: relative; width: 100%; max-width: 380px; margin: 0 auto; padding: 10px; display: flex; justify-content: center; align-items: center; z-index: 10; }
         .paper-letter-pop { animation: popInLetter 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        @keyframes popInLetter { 0% { opacity: 0; transform: scale(0.3) rotate(-12deg); } 70% { transform: scale(1.03) rotate(-2deg); } 100% { opacity: 1; transform: scale(1) rotate(-2deg); } }
+        @keyframes popInLetter { 0% { opacity: 0; transform: scale(0.3) rotate(-12deg); } 70% { transform: scale(1.04) rotate(-2deg); } 100% { opacity: 1; transform: scale(1) rotate(-2deg); } }
         
-        .paper-sheet { position: relative; width: 100%; padding: 26px 18px 22px 18px; border-radius: 16px; box-shadow: -8px 15px 35px rgba(0,0,0,0.18); border: 1px solid rgba(255, 255, 255, 0.8); }
+        .paper-sheet { position: relative; width: 100%; padding: 32px 22px 28px 22px; border-radius: 16px; box-shadow: -8px 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.8); }
         
-        .paper-classic { background-color: rgba(255, 253, 248, 0.97); color: #2b2b2b; }
+        .paper-classic { background-color: rgba(255, 253, 248, 0.96); color: #2b2b2b; }
         .paper-classic .letter-title { color: #b91c1c; border-bottom: 2px dashed #fca5a5; }
         .paper-classic .letter-signature { color: #9f1239; }
 
@@ -1611,10 +1588,10 @@
         .paper-dark .letter-title { color: #fb7185; border-bottom: 2px dashed #f43f5e; }
         .paper-dark .letter-signature { color: #fda4af; }
 
-        .paperclip { position: absolute; top: 10px; right: 24px; width: 16px; height: 40px; border: 3px solid #4a4a4a; border-radius: 12px; z-index: 6; transform: rotate(8deg); }
-        .letter-content { font-family: 'Pyidaungsu', sans-serif; line-height: 1.6; font-size: 0.9rem; text-align: left; max-height: 52vh; overflow-y: auto; padding-right: 4px; }
-        .letter-title { text-align: center; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; }
-        .letter-signature { text-align: right; margin-top: 14px; font-weight: 700; font-size: 0.95rem; }
+        .paperclip { position: absolute; top: 12px; right: 28px; width: 18px; height: 45px; border: 3px solid #4a4a4a; border-radius: 12px; z-index: 6; transform: rotate(8deg); }
+        .letter-content { font-family: 'Pyidaungsu', sans-serif; line-height: 1.8; font-size: 0.95rem; text-align: left; }
+        .letter-title { text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; }
+        .letter-signature { text-align: right; margin-top: 18px; font-weight: 700; font-size: 1rem; }
     </style>
 </head>
 <body>
@@ -1951,7 +1928,7 @@
             const deployBtn = document.getElementById('btn-deploy-gh');
 
             if (!token) {
-                alert('GitHub Personal Access Token ထည့်သွင်းပေးပါ။');
+                alert('ကျေးဇူးပြု၍ epostcard သို့မဟုတ် mm သို့မဟုတ် epostcardmm ဟု စာရိုက်ထည့်ပေးပါ');
                 return;
             }
             if (!repoName) {
