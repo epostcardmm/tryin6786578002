@@ -57,13 +57,14 @@
             text-align: left;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 32px 28px 32px 32px;
+            padding: 0 28px 32px 32px;
             background: #ffffff;
             border-radius: 36px;
             border: 1px solid #e9eef4;
             box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08), 0 8px 16px -8px rgba(0, 0, 0, 0.02);
             scrollbar-width: thin;
             scrollbar-color: #cbd5e1 #f1f5f9;
+            position: relative;
         }
 
         .editor-container::-webkit-scrollbar {
@@ -85,9 +86,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
+            margin-bottom: 14px;
+            padding: 24px 0 14px 0;
             border-bottom: 1.5px solid #f1f5f9;
+            gap: 12px;
         }
 
         .editor-header h2 {
@@ -109,6 +111,112 @@
             font-weight: 700;
             letter-spacing: 0.3px;
             border: 1px solid #c7d2fe;
+        }
+
+        .lang-toggle {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #f8fafc;
+            border: 1.5px solid #eef2f6;
+            border-radius: 40px;
+            padding: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-toggle:hover {
+            border-color: #cbd5e1;
+        }
+
+        .lang-opt {
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .lang-opt.active {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: #ffffff;
+            box-shadow: 0 3px 8px -2px rgba(79, 70, 229, 0.4);
+        }
+
+        /* ----------  SHORTCUT BAR  ---------- */
+        .shortcut-bar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 0 10px 0;
+            background: #ffffff;
+            border-bottom: 1.5px solid #f1f5f9;
+            margin: 0 -28px 18px -32px;
+            padding-left: 32px;
+            padding-right: 28px;
+            scrollbar-width: none;
+        }
+
+        .shortcut-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .shortcut-chip {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            background: #f8fafc;
+            border: 1.5px solid #eef2f6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            letter-spacing: 0.1px;
+        }
+
+        .shortcut-chip:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            color: #334155;
+        }
+
+        .shortcut-chip.active {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.35);
+        }
+
+        .shortcut-chip .chip-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: 0.6;
+        }
+
+        .shortcut-chip.add-chip {
+            background: #ecfdf5;
+            border-color: #bbf7d0;
+            color: #059669;
+            font-weight: 700;
+        }
+
+        .shortcut-chip.add-chip:hover {
+            background: #d1fae5;
+            border-color: #86efac;
+            color: #047857;
         }
 
         /* ----------  FORM ELEMENTS  ---------- */
@@ -182,7 +290,7 @@
             margin-bottom: 0;
         }
 
-        /* ----------  SPECIAL BOXES (intro/success/telegram)  ---------- */
+        /* ----------  SPECIAL BOXES  ---------- */
         .intro-editor-box {
             background: #fef7f7;
             border: 1.5px solid #ffe4e6;
@@ -227,26 +335,124 @@
             letter-spacing: -0.2px;
         }
 
-        .telegram-section {
-            background: #f0f9ff;
-            border: 1.5px solid #bae6fd;
-            border-radius: 24px;
-            padding: 22px;
-            margin-bottom: 22px;
-            box-shadow: 0 4px 12px -4px rgba(2, 132, 199, 0.04);
+        /* ----------  FLOATING ACTION BUTTONS  ---------- */
+        .fab-stack {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
         }
 
-        .telegram-section h4 {
-            color: #0369a1;
-            margin-bottom: 16px;
+        .fab-btn {
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 22px;
             font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .fab-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .fab-preview {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            box-shadow: 0 12px 28px -6px rgba(124, 58, 237, 0.45);
+        }
+
+        .fab-preview:hover {
+            box-shadow: 0 16px 32px -6px rgba(124, 58, 237, 0.55);
+        }
+
+        .fab-telegram {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.45);
+        }
+
+        .fab-telegram:hover {
+            box-shadow: 0 16px 32px -6px rgba(37, 99, 235, 0.55);
+        }
+
+        /* ----------  TELEGRAM POPUP ---------- */
+        .telegram-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 900;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .telegram-modal-overlay.open {
+            display: flex;
+        }
+
+        .telegram-modal {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 26px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+            animation: modalPop 0.25s ease;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.92) translateY(10px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .telegram-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1.5px solid #f1f5f9;
+        }
+
+        .telegram-modal-header h4 {
+            color: #0369a1;
+            font-size: 15px;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 1.5px solid #e0f2fe;
-            padding-bottom: 10px;
-            letter-spacing: -0.2px;
+        }
+
+        .telegram-modal-close {
+            background: #f1f5f9;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .telegram-modal-close:hover {
+            background: #fee2e2;
+            color: #dc2626;
         }
 
         /* ----------  STEP BOX  ---------- */
@@ -259,11 +465,17 @@
             position: relative;
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.02);
+            scroll-margin-top: 80px;
         }
 
         .step-box:hover {
             border-color: #cbd5e1;
             box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.06);
+        }
+
+        .step-box.highlight {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
         }
 
         .step-box h4 {
@@ -568,7 +780,8 @@
         @media(max-width: 950px) {
             .studio-wrapper { flex-direction: column; align-items: center; }
             .preview-container { position: static; width: 100%; max-width: 440px; }
-            .editor-container { max-height: none; padding: 24px; padding-right: 24px; }
+            .editor-container { max-height: none; padding: 0 24px 24px 24px; }
+            .shortcut-bar { margin: 0 -24px 18px -24px; padding-left: 24px; padding-right: 24px; }
         }
     </style>
 </head>
@@ -579,98 +792,88 @@
         <div class="card-container editor-container" id="editorView">
             <div class="editor-header">
                 <h2>✦ ePostcard Studio <span>LIVE</span></h2>
+                <div class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-opt active" id="langMM">MM</span>
+                    <span class="lang-opt" id="langEN">ENG</span>
+                </div>
             </div>
-            
+
+            <!-- SHORTCUT BAR -->
+            <div class="shortcut-bar" id="shortcutBar">
+                <!-- Dynamically populated -->
+            </div>
+
             <div class="form-group">
-                <label>Formspree endpoint</label>
+                <label id="lblFormspree">Formspree endpoint</label>
                 <input type="text" id="inputFormspree" placeholder="https://formspree.io/f/your_id">
             </div>
 
-            <!-- TELEGRAM UPLOAD SECTION -->
-            <div class="telegram-section">
-                <h4>✈️ Telegram delivery</h4>
-                <div class="form-group">
-                    <label>Upload image</label>
-                    <input type="file" id="telegramImageFile" accept="image/*">
-                </div>
-                <div class="form-group">
-                    <label>HTML file name</label>
-                    <input type="text" id="telegramHtmlFileName" placeholder="e.g. index.html">
-                </div>
-                <button type="button" class="btn-main" style="background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.3);" onclick="sendToTelegramBot()">🚀 Send to Telegram</button>
-                <div id="telegramStatus" style="font-size: 12px; margin-top: 10px; font-weight: 600; color: #2563eb; display: none;">Sending…</div>
-            </div>
-
             <!-- INTRO SCREEN EDITOR -->
-            <div class="intro-editor-box">
-                <h4>💖 Intro screen</h4>
+            <div class="intro-editor-box" id="section-intro">
+                <h4 id="hdrIntro">💖 Intro screen</h4>
                 <div class="form-group" style="margin-bottom:12px;">
-                    <label>Title</label>
+                    <label id="lblIntroTitle">Title</label>
                     <input type="text" id="inputIntroTitle" value="Hello ရည်းစားဟောင်းလေး" oninput="syncLivePreview()">
                 </div>
                 <div class="color-row">
                     <div class="form-group">
-                        <label>Title color</label>
+                        <label id="lblIntroTitleColor">Title color</label>
                         <input type="color" id="inputIntroTitleColor" value="#ff4757" oninput="syncLivePreview()">
                     </div>
                     <div class="form-group">
-                        <label>Text color</label>
+                        <label id="lblIntroSubColor">Text color</label>
                         <input type="color" id="inputIntroSubColor" value="#64748b" oninput="syncLivePreview()">
                     </div>
                 </div>
                 <div class="color-row">
                     <div class="form-group" style="flex: 1;">
-                        <label>Card background</label>
+                        <label id="lblIntroBg">Card background</label>
                         <input type="color" id="inputIntroBg" value="#ffffff" oninput="syncLivePreview()">
                     </div>
                 </div>
                 <div class="form-group" style="margin-bottom:12px;">
-                    <label>Subtitle</label>
+                    <label id="lblIntroSubtitle">Subtitle</label>
                     <input type="text" id="inputIntroSubtitle" value="Click The Heart" oninput="syncLivePreview()">
                 </div>
                 <div class="form-group" style="margin-bottom:0;">
-                    <label>Heart GIF (URL or device)</label>
+                    <label id="lblIntroGif">Heart GIF (URL or device)</label>
                     <div style="display: flex; gap: 10px; align-items: center;">
                         <input type="text" id="inputIntroGif" value="https://media.tenor.com/RjFzdxaLVNMAAAAi/heart.gif" oninput="syncLivePreview()" style="flex: 1;">
                         <input type="file" id="inputIntroGifFile" accept="image/*" style="display: none;" onchange="handleIntroGifUpload(event)">
-                        <button type="button" class="btn-secondary" style="margin-top:0; width: auto; padding: 10px 16px; font-size: 12px; white-space: nowrap;" onclick="document.getElementById('inputIntroGifFile').click()">📁 Upload</button>
+                        <button type="button" class="btn-secondary" style="margin-top:0; width: auto; padding: 10px 16px; font-size: 12px; white-space: nowrap;" onclick="document.getElementById('inputIntroGifFile').click()" id="btnIntroUpload">📁 Upload</button>
                     </div>
                 </div>
             </div>
 
             <!-- SUCCESS SCREEN EDITOR -->
-            <div class="success-editor-box">
-                <h4>🎉 Success screen</h4>
+            <div class="success-editor-box" id="section-success">
+                <h4 id="hdrSuccess">🎉 Success screen</h4>
                 <div class="form-group" style="margin-bottom:12px;">
-                    <label>Agreement title</label>
+                    <label id="lblSuccessTitle">Agreement title</label>
                     <input type="text" id="inputSuccessTitle" value="💖 Our Love Agreement" oninput="syncLivePreview()">
                 </div>
                 <div class="color-row">
                     <div class="form-group">
-                        <label>Title color</label>
+                        <label id="lblSuccessTitleColor">Title color</label>
                         <input type="color" id="inputSuccessTitleColor" value="#e11d48" oninput="syncLivePreview()">
                     </div>
                     <div class="form-group">
-                        <label>Card background</label>
+                        <label id="lblSuccessBg">Card background</label>
                         <input type="color" id="inputSuccessBg" value="#ffffff" oninput="syncLivePreview()">
                     </div>
                 </div>
             </div>
             
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <h3 style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.6px;">📋 Question steps</h3>
+                <h3 style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.6px;" id="lblStepsHeader">📋 Question steps</h3>
             </div>
             <div id="stepsEditorList"></div>
-
-            <button class="btn-secondary" type="button" onclick="addNewStep()">➕ Add new step</button>
-            <br><br>
-            <button class="btn-main" onclick="fullScreenPreview()">🚀 Full screen preview</button>
         </div>
 
         <!-- 2. LIVE PREVIEW PANEL -->
         <div class="card-container preview-container" id="livePreviewPanel">
             <div class="preview-header">
-                <h3>👀 Live preview</h3>
+                <h3 id="lblLivePreview">👀 Live preview</h3>
                 <select id="previewStepSelector" class="preview-step-select" onchange="changePreviewStep(this.value)">
                     <!-- Dynamically populated -->
                 </select>
@@ -683,6 +886,32 @@
         </div>
     </div>
 
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fab-stack">
+        <button class="fab-btn fab-preview" onclick="fullScreenPreview()" id="fabPreview">🚀 Preview</button>
+        <button class="fab-btn fab-telegram" onclick="openTelegramModal()" id="fabTelegram">✈️ Telegram</button>
+    </div>
+
+    <!-- TELEGRAM POPUP MODAL -->
+    <div class="telegram-modal-overlay" id="telegramModalOverlay" onclick="closeTelegramModalOnBackdrop(event)">
+        <div class="telegram-modal">
+            <div class="telegram-modal-header">
+                <h4 id="hdrTelegram">✈️ Telegram delivery</h4>
+                <button class="telegram-modal-close" onclick="closeTelegramModal()">✕</button>
+            </div>
+            <div class="form-group">
+                <label id="lblTelegramImage">Upload image</label>
+                <input type="file" id="telegramImageFile" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label id="lblTelegramFileName">HTML file name</label>
+                <input type="text" id="telegramHtmlFileName" placeholder="e.g. index.html">
+            </div>
+            <button type="button" class="btn-main" style="background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.3);" onclick="sendToTelegramBot()" id="btnTelegramSend">🚀 Send to Telegram</button>
+            <div id="telegramStatus" style="font-size: 12px; margin-top: 10px; font-weight: 600; color: #2563eb; display: none;">Sending…</div>
+        </div>
+    </div>
+
     <!-- 3. FULLSCREEN / PLAY MODE WRAPPER -->
     <div id="playModeWrapper" style="display: none; position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(6px); z-index: 99999; justify-content: center; align-items: center; padding: 20px;">
         <!-- INTRO SCREEN -->
@@ -692,7 +921,7 @@
             <div class="heart-start-btn" id="startHeartBtn">
                 <img id="introHeartImg" src="https://media.tenor.com/RjFzdxaLVNMAAAAi/heart.gif" alt="Heart GIF">
             </div>
-            <button class="btn-secondary" style="margin-top: 15px; background: #6366f1; color: white; border: none;" onclick="exitPlayMode()">⚙️ Back to editor</button>
+            <button class="btn-secondary" style="margin-top: 15px; background: #6366f1; color: white; border: none;" onclick="exitPlayMode()" id="btnBackToEditor1">⚙️ Back to editor</button>
         </div>
 
         <!-- MAIN CARD QUESTION FLOW -->
@@ -704,7 +933,7 @@
                 <button id="noBtn" class="choice-btn secondary-btn" onclick="handleInteraction(false)">မချစ်ဘူး</button>
             </div>
             <div id="sendingStatus">Sending answers… 💌</div>
-            <button class="btn-secondary" style="margin-top: 15px; background: #6366f1; color: white; border: none; font-size: 12px; padding: 8px;" onclick="exitPlayMode()">⚙️ Back to editor</button>
+            <button class="btn-secondary" style="margin-top: 15px; background: #6366f1; color: white; border: none; font-size: 12px; padding: 8px;" onclick="exitPlayMode()" id="btnBackToEditor2">⚙️ Back to editor</button>
         </div>
 
         <!-- SUCCESS SCREEN -->
@@ -713,11 +942,141 @@
                 <h3 id="successTitleText">💖 Our Love Agreement</h3>
                 <div id="summaryList"></div>
             </div>
-            <button class="btn-secondary" style="background: #6366f1; color: white; border: none; margin-top: 15px;" onclick="exitPlayMode()">⚙️ Back to editor</button>
+            <button class="btn-secondary" style="background: #6366f1; color: white; border: none; margin-top: 15px;" onclick="exitPlayMode()" id="btnBackToEditor3">⚙️ Back to editor</button>
         </div>
     </div>
 
     <script>
+        // ============================================================
+        // LANGUAGE SYSTEM
+        // ============================================================
+        let currentLang = 'MM';
+
+        const i18n = {
+            MM: {
+                formspreeLabel: 'Formspree endpoint',
+                introHdr: '💖 ပထမစာမျက်နှာ (Intro screen)',
+                introTitle: 'ခေါင်းစဉ်',
+                introTitleColor: 'ခေါင်းစဉ်အရောင်',
+                introSubColor: 'စာသားအရောင်',
+                introBg: 'Card နောက်ခံ',
+                introSubtitle: 'အောက်ခံစာသား',
+                introGif: 'အသည်းပုံ GIF (URL သို့မဟုတ် Device)',
+                introUpload: '📁 တင်မည်',
+                successHdr: '🎉 နောက်ဆုံးစာမျက်နှာ (Success screen)',
+                successTitle: 'ခေါင်းစဉ်',
+                successTitleColor: 'ခေါင်းစဉ်အရောင်',
+                successBg: 'Card နောက်ခံ',
+                stepsHeader: '📋 မေးခွန်းအဆင့်များ',
+                livePreview: '👀 Live preview',
+                fabPreview: '🚀 Preview',
+                fabTelegram: '✈️ Telegram',
+                telegramHdr: '✈️ Telegram delivery',
+                telegramImage: 'ပုံတင်ရန်',
+                telegramFileName: 'HTML file name',
+                telegramSend: '🚀 Telegram သို့ ပို့မည်',
+                backToEditor: '⚙️ Editor သို့ ပြန်သွားရန်',
+                addStep: '➕ Add Step',
+                stepLabel: 'အဆင့်',
+                deleteStep: 'ဖျက်မည်',
+                question: 'မေးခွန်း',
+                questionColor: 'မေးခွန်းစာသား အရောင်',
+                cardBg: 'Card နောက်ခံ',
+                yesLabel: 'Yes ခလုတ်စာသား',
+                noLabel: 'No ခလုတ်စာသား',
+                yesColor: 'Yes ခလုတ် အရောင်',
+                noColor: 'No ခလုတ် အရောင်',
+                gifLabel: 'GIF / ပုံ (URL သို့မဟုတ် Device)',
+                uploadBtn: '📁 တင်မည်',
+                animationLabel: 'No ခလုတ်ပုံစံ (Animation Type - ၁၅ မျိုး)',
+                introChip: '💖 Intro',
+                successChip: '🎉 Success'
+            },
+            EN: {
+                formspreeLabel: 'Formspree endpoint',
+                introHdr: '💖 Intro screen',
+                introTitle: 'Title',
+                introTitleColor: 'Title color',
+                introSubColor: 'Text color',
+                introBg: 'Card background',
+                introSubtitle: 'Subtitle',
+                introGif: 'Heart GIF (URL or device)',
+                introUpload: '📁 Upload',
+                successHdr: '🎉 Success screen',
+                successTitle: 'Agreement title',
+                successTitleColor: 'Title color',
+                successBg: 'Card background',
+                stepsHeader: '📋 Question steps',
+                livePreview: '👀 Live preview',
+                fabPreview: '🚀 Preview',
+                fabTelegram: '✈️ Telegram',
+                telegramHdr: '✈️ Telegram delivery',
+                telegramImage: 'Upload image',
+                telegramFileName: 'HTML file name',
+                telegramSend: '🚀 Send to Telegram',
+                backToEditor: '⚙️ Back to editor',
+                addStep: '➕ Add Step',
+                stepLabel: 'Step',
+                deleteStep: 'Delete',
+                question: 'Question',
+                questionColor: 'Question color',
+                cardBg: 'Card background',
+                yesLabel: 'Yes label',
+                noLabel: 'No label',
+                yesColor: 'Yes color',
+                noColor: 'No color',
+                gifLabel: 'GIF / image (URL or device)',
+                uploadBtn: '📁 Upload',
+                animationLabel: 'No button animation (15 types)',
+                introChip: '💖 Intro',
+                successChip: '🎉 Success'
+            }
+        };
+
+        function t(key) {
+            return i18n[currentLang][key] || key;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'MM' ? 'EN' : 'MM';
+            document.getElementById('langMM').classList.toggle('active', currentLang === 'MM');
+            document.getElementById('langEN').classList.toggle('active', currentLang === 'EN');
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            document.getElementById('lblFormspree').textContent = t('formspreeLabel');
+            document.getElementById('hdrIntro').textContent = t('introHdr');
+            document.getElementById('lblIntroTitle').textContent = t('introTitle');
+            document.getElementById('lblIntroTitleColor').textContent = t('introTitleColor');
+            document.getElementById('lblIntroSubColor').textContent = t('introSubColor');
+            document.getElementById('lblIntroBg').textContent = t('introBg');
+            document.getElementById('lblIntroSubtitle').textContent = t('introSubtitle');
+            document.getElementById('lblIntroGif').textContent = t('introGif');
+            document.getElementById('btnIntroUpload').textContent = t('introUpload');
+            document.getElementById('hdrSuccess').textContent = t('successHdr');
+            document.getElementById('lblSuccessTitle').textContent = t('successTitle');
+            document.getElementById('lblSuccessTitleColor').textContent = t('successTitleColor');
+            document.getElementById('lblSuccessBg').textContent = t('successBg');
+            document.getElementById('lblStepsHeader').textContent = t('stepsHeader');
+            document.getElementById('lblLivePreview').textContent = t('livePreview');
+            document.getElementById('fabPreview').textContent = t('fabPreview');
+            document.getElementById('fabTelegram').textContent = t('fabTelegram');
+            document.getElementById('hdrTelegram').textContent = t('telegramHdr');
+            document.getElementById('lblTelegramImage').textContent = t('telegramImage');
+            document.getElementById('lblTelegramFileName').textContent = t('telegramFileName');
+            document.getElementById('btnTelegramSend').textContent = t('telegramSend');
+            document.getElementById('btnBackToEditor1').textContent = t('backToEditor');
+            document.getElementById('btnBackToEditor2').textContent = t('backToEditor');
+            document.getElementById('btnBackToEditor3').textContent = t('backToEditor');
+            renderShortcutBar();
+            renderEditorStepsLabels();
+            updatePreviewStepSelector();
+        }
+
+        // ============================================================
+        // DATA
+        // ============================================================
         let defaultSteps = [
             { question: "ပြန်ချစ်ကြည့်ကြမလား?", yes: "ချစ်တယ်", no: "မချစ်ဘူး", gif: "https://media1.tenor.com/m/2K0bjyLKldkAAAAC/dudu-dudu-bubu.gif", type: "shrink", qColor: "#1e293b", yesColor: "#0d9488", noColor: "#f43f5e", cardBg: "#ffffff" },
             { question: "သတိရနေခဲ့တာ သိရဲ့လား", yes: "ဒီကရောပဲ", no: "မယုံပါဘူး", gif: "https://media.tenor.com/PkvpJyo2rSQAAAAi/bubu-dudu-sseeyall.gif", type: "run", qColor: "#1e293b", yesColor: "#0d9488", noColor: "#f43f5e", cardBg: "#ffffff" },
@@ -736,52 +1095,150 @@
         let currentStep = 0, yesScale = 1, noScale = 1, userAnswers = [];
         let noClickCounts = [];
 
+        // ============================================================
+        // SHORTCUT BAR
+        // ============================================================
+        function renderShortcutBar() {
+            const bar = document.getElementById('shortcutBar');
+            bar.innerHTML = '';
+
+            // Intro chip
+            const introChip = document.createElement('button');
+            introChip.type = 'button';
+            introChip.className = 'shortcut-chip' + (currentPreviewStep === 'intro' ? ' active' : '');
+            introChip.innerHTML = '<span class="chip-dot"></span>' + t('introChip');
+            introChip.onclick = () => jumpToSection('intro');
+            bar.appendChild(introChip);
+
+            // Step chips
+            activeSteps.forEach((s, i) => {
+                const chip = document.createElement('button');
+                chip.type = 'button';
+                chip.className = 'shortcut-chip' + (currentPreviewStep === i ? ' active' : '');
+                chip.innerHTML = `<span class="chip-dot"></span>${i + 1}. ${s.question.substring(0, 14)}${s.question.length > 14 ? '…' : ''}`;
+                chip.onclick = () => jumpToSection(i);
+                bar.appendChild(chip);
+            });
+
+            // Add Step chip
+            const addChip = document.createElement('button');
+            addChip.type = 'button';
+            addChip.className = 'shortcut-chip add-chip';
+            addChip.innerHTML = t('addStep');
+            addChip.onclick = () => addNewStep();
+            bar.appendChild(addChip);
+
+            // Success chip
+            const successChip = document.createElement('button');
+            successChip.type = 'button';
+            successChip.className = 'shortcut-chip' + (currentPreviewStep === 'success' ? ' active' : '');
+            successChip.innerHTML = '<span class="chip-dot"></span>' + t('successChip');
+            successChip.onclick = () => jumpToSection('success');
+            bar.appendChild(successChip);
+        }
+
+        function jumpToSection(target) {
+            document.querySelectorAll('.shortcut-chip').forEach(c => c.classList.remove('active'));
+
+            if (target === 'intro') {
+                currentPreviewStep = 'intro';
+                document.getElementById('previewStepSelector').value = 'intro';
+                document.getElementById('section-intro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('section-intro').classList.add('highlight');
+                setTimeout(() => document.getElementById('section-intro').classList.remove('highlight'), 1200);
+            } else if (target === 'success') {
+                currentPreviewStep = 'success';
+                document.getElementById('previewStepSelector').value = 'success';
+                document.getElementById('section-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('section-success').classList.add('highlight');
+                setTimeout(() => document.getElementById('section-success').classList.remove('highlight'), 1200);
+            } else {
+                currentPreviewStep = target;
+                document.getElementById('previewStepSelector').value = target;
+                const stepEl = document.getElementById(`eq_${target}`);
+                if (stepEl) {
+                    const box = stepEl.closest('.step-box');
+                    if (box) {
+                        box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        box.classList.add('highlight');
+                        setTimeout(() => box.classList.remove('highlight'), 1200);
+                    }
+                }
+            }
+
+            liveYesScale = 1;
+            liveNoScale = 1;
+            updateLivePreviewCard();
+            renderShortcutBar();
+        }
+
+        // ============================================================
+        // TELEGRAM MODAL
+        // ============================================================
+        function openTelegramModal() {
+            document.getElementById('telegramModalOverlay').classList.add('open');
+        }
+
+        function closeTelegramModal() {
+            document.getElementById('telegramModalOverlay').classList.remove('open');
+        }
+
+        function closeTelegramModalOnBackdrop(event) {
+            if (event.target === document.getElementById('telegramModalOverlay')) {
+                closeTelegramModal();
+            }
+        }
+
+        // ============================================================
+        // EDITOR STEPS
+        // ============================================================
         function renderEditorSteps() {
             const container = document.getElementById('stepsEditorList');
             container.innerHTML = "";
             activeSteps.forEach((s, index) => {
                 let div = document.createElement('div');
                 div.className = 'step-box';
+                div.id = `step-box-${index}`;
                 div.innerHTML = `
-                    <h4>Step ${index + 1} <button class="delete-step-btn" type="button" onclick="removeStep(${index})">Delete</button></h4>
+                    <h4>${t('stepLabel')} ${index + 1} <button class="delete-step-btn" type="button" onclick="removeStep(${index})">${t('deleteStep')}</button></h4>
                     <div class="form-group" style="margin-bottom:12px;">
-                        <label>Question</label>
+                        <label>${t('question')}</label>
                         <input type="text" value="${s.question}" id="eq_${index}" oninput="syncLivePreview()">
                     </div>
                     <div class="color-row">
                         <div class="form-group">
-                            <label>Question color</label>
+                            <label>${t('questionColor')}</label>
                             <input type="color" value="${s.qColor || '#1e293b'}" id="eqcol_${index}" oninput="syncLivePreview()">
                         </div>
                         <div class="form-group">
-                            <label>Card background</label>
+                            <label>${t('cardBg')}</label>
                             <input type="color" value="${s.cardBg || '#ffffff'}" id="ecbg_${index}" oninput="syncLivePreview()">
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px; margin-bottom:12px;">
-                        <div style="flex:1;"><label>Yes label</label><input type="text" value="${s.yes}" id="eyes_${index}" oninput="syncLivePreview()"></div>
-                        <div style="flex:1;"><label>No label</label><input type="text" value="${s.no}" id="eno_${index}" oninput="syncLivePreview()"></div>
+                        <div style="flex:1;"><label>${t('yesLabel')}</label><input type="text" value="${s.yes}" id="eyes_${index}" oninput="syncLivePreview()"></div>
+                        <div style="flex:1;"><label>${t('noLabel')}</label><input type="text" value="${s.no}" id="eno_${index}" oninput="syncLivePreview()"></div>
                     </div>
                     <div class="color-row">
                         <div class="form-group">
-                            <label>Yes color</label>
+                            <label>${t('yesColor')}</label>
                             <input type="color" value="${s.yesColor || '#0d9488'}" id="eyescol_${index}" oninput="syncLivePreview()">
                         </div>
                         <div class="form-group">
-                            <label>No color</label>
+                            <label>${t('noColor')}</label>
                             <input type="color" value="${s.noColor || '#f43f5e'}" id="enocol_${index}" oninput="syncLivePreview()">
                         </div>
                     </div>
                     <div class="form-group" style="margin-bottom:12px;">
-                        <label>GIF / image (URL or device)</label>
+                        <label>${t('gifLabel')}</label>
                         <div style="display: flex; gap: 10px; align-items: center;">
                             <input type="text" value="${s.gif}" id="egif_${index}" oninput="syncLivePreview()" style="flex: 1;">
                             <input type="file" id="egifFile_${index}" accept="image/*" style="display: none;" onchange="handleStepGifUpload(event, ${index})">
-                            <button type="button" class="btn-secondary" style="margin-top:0; width: auto; padding: 10px 16px; font-size: 12px; white-space: nowrap;" onclick="document.getElementById('egifFile_${index}').click()">📁 Upload</button>
+                            <button type="button" class="btn-secondary" style="margin-top:0; width: auto; padding: 10px 16px; font-size: 12px; white-space: nowrap;" onclick="document.getElementById('egifFile_${index}').click()">${t('uploadBtn')}</button>
                         </div>
                     </div>
                     <div class="form-group" style="margin-bottom:0;">
-                        <label>No button animation (15 types)</label>
+                        <label>${t('animationLabel')}</label>
                         <select id="etype_${index}" onchange="syncLivePreview()">
                             <option value="shrink" ${s.type==='shrink'?'selected':''}>1. shrink (No shrinks, Yes grows)</option>
                             <option value="run" ${s.type==='run'?'selected':''}>2. run (No button runs away)</option>
@@ -805,6 +1262,36 @@
             });
             updatePreviewStepSelector();
             syncLivePreview();
+            renderShortcutBar();
+        }
+
+        // Re-apply labels without rebuilding DOM (for language switch)
+        function renderEditorStepsLabels() {
+            activeSteps.forEach((s, index) => {
+                const box = document.getElementById(`step-box-${index}`);
+                if (!box) return;
+                const h4 = box.querySelector('h4');
+                if (h4) {
+                    const btn = h4.querySelector('.delete-step-btn');
+                    h4.innerHTML = `${t('stepLabel')} ${index + 1} `;
+                    if (btn) {
+                        btn.textContent = t('deleteStep');
+                        h4.appendChild(btn);
+                    }
+                }
+                const labels = box.querySelectorAll('.form-group label');
+                if (labels[0]) labels[0].textContent = t('question');
+                if (labels[1]) labels[1].textContent = t('questionColor');
+                if (labels[2]) labels[2].textContent = t('cardBg');
+                if (labels[3]) labels[3].textContent = t('yesLabel');
+                if (labels[4]) labels[4].textContent = t('noLabel');
+                if (labels[5]) labels[5].textContent = t('yesColor');
+                if (labels[6]) labels[6].textContent = t('noColor');
+                if (labels[7]) labels[7].textContent = t('gifLabel');
+                if (labels[8]) labels[8].textContent = t('animationLabel');
+                const uploadBtn = box.querySelector('button[onclick^="document.getElementById(\'egifFile"]');
+                if (uploadBtn) uploadBtn.textContent = t('uploadBtn');
+            });
         }
 
         function handleIntroGifUpload(event) {
@@ -859,6 +1346,7 @@
             liveYesScale = 1;
             liveNoScale = 1;
             updateLivePreviewCard();
+            renderShortcutBar();
         }
 
         function syncLivePreview() {
@@ -885,6 +1373,13 @@
                 if(typeEl) activeSteps[i].type = typeEl.value;
             }
             updateLivePreviewCard();
+            // Update shortcut bar labels
+            document.querySelectorAll('.shortcut-chip').forEach((chip, idx) => {
+                if (idx > 0 && idx <= activeSteps.length) {
+                    const s = activeSteps[idx - 1];
+                    chip.innerHTML = `<span class="chip-dot"></span>${idx}. ${s.question.substring(0, 14)}${s.question.length > 14 ? '…' : ''}`;
+                }
+            });
         }
 
         function updateLivePreviewCard() {
@@ -954,6 +1449,7 @@
                 liveYesScale = 1;
                 liveNoScale = 1;
                 updateLivePreviewCard();
+                renderShortcutBar();
             } else {
                 alert(`[Live Preview] Animation type (${s.type}) is working!`);
             }
@@ -962,6 +1458,17 @@
         function addNewStep() {
             activeSteps.push({ question: "New question?", yes: "Yes", no: "No", gif: "https://media1.tenor.com/m/2K0bjyLKldkAAAAC/dudu-dudu-bubu.gif", type: "shrink", qColor: "#1e293b", yesColor: "#0d9488", noColor: "#f43f5e", cardBg: "#ffffff" });
             renderEditorSteps();
+            // Scroll to new step
+            const newIdx = activeSteps.length - 1;
+            const newBox = document.getElementById(`step-box-${newIdx}`);
+            if (newBox) {
+                setTimeout(() => {
+                    newBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    newBox.classList.add('highlight');
+                    setTimeout(() => newBox.classList.remove('highlight'), 1200);
+                }, 100);
+            }
+            jumpToSection(newIdx);
         }
 
         function removeStep(index) {
@@ -970,6 +1477,9 @@
                 return;
             }
             activeSteps.splice(index, 1);
+            if (currentPreviewStep !== 'intro' && currentPreviewStep !== 'success' && currentPreviewStep >= activeSteps.length) {
+                currentPreviewStep = activeSteps.length - 1;
+            }
             renderEditorSteps();
         }
 
